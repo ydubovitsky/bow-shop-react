@@ -1,0 +1,18 @@
+.container {
+  background-color: var(--three-bg-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 100px;
+}
+
+.navContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.navContainer a {
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+}

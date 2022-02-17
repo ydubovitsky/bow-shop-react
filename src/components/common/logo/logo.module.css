@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  width: 100px;
+}
+
+.title {
+  font-size: 1.4rem;
+  /* font-style: italic; */
+}
+
+.container img {
+  position: absolute;
+  top: -70%;
+  right: -70%;
+  transform: rotate(45deg);
+}

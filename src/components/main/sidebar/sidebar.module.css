@@ -1,0 +1,49 @@
+.container {
+  display: grid;
+  justify-items: left;
+  padding: 75px;
+  gap: 50px;
+  text-transform: uppercase;
+}
+
+.container a {
+  text-decoration: none;
+  color: black;
+}
+
+.navContainer {
+  display: grid;
+  justify-items: left;
+  gap: 50px;
+}
+
+.buttonContainer {
+  display: grid;
+  gap: 15px;
+}
+
+.cartContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 50px 0;
+  gap: 2rem;
+}
+
+.cartLink {
+  display: grid;
+  grid-template-columns: max-content min-content;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cartLink i {
+  color: var(--two-text-color);
+}
+
+.socialContainer {
+  width: 100%;
+  display: grid;
+  color: silver;
+  justify-items: left;
+  grid-template-columns: repeat(4, 1fr);
+}

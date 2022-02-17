@@ -1,0 +1,30 @@
+.container {
+  font-family: "helveticaneuemedium";
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+  outline: 0 solid transparent;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  min-width: 160px;
+  height: 55px;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 0 7px;
+  font-size: 18px;
+  line-height: 56px;
+  background-color: #fbb710;
+  font-weight: 400;
+  cursor: pointer;
+  width: 160px;
+  display: block;
+}
+
+.container:hover {
+  background-color: black;
+  color: white;
+}

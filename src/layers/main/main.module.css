@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: repeat(3, min-content);
+  grid-template-areas:
+    "sidebar content"
+    "newsLetter newsLetter"
+    "footer footer";
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.newsLetter {
+  grid-area: newsLetter;
+}
+
+.footer {
+  grid-area: footer;
+}
