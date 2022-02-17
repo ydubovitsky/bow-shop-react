@@ -12,9 +12,9 @@ const Sidebar = () => {
         <Logo />
       </div>
       <nav className={styles.navContainer}>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
-        <Link to="/product">Product</Link>
+        <Link to="/category">Category</Link>
         <Link to="/cart">Cart</Link>
         <Link to="/checkout">Checkout</Link>
       </nav>

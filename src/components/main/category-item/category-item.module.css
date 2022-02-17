@@ -1,0 +1,25 @@
+.container {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.5s ease;
+  margin: 5px;
+  padding: 5%;
+}
+
+.container:hover {
+  background-blend-mode: multiply;
+  background-color: rgb(133, 133, 133);
+}
+
+.name {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}

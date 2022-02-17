@@ -3,6 +3,7 @@ import Sidebar from '../../components/main/sidebar/sidebar.component';
 import Content from '../../components/main/content/content.component';
 import NewsLetter from '../../components/main/news-letter/news-letter.component';
 import Footer from '../../components/common/footer/footer.component';
+import { Outlet } from 'react-router-dom';
 
 const Main = () => {
   return (
