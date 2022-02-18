@@ -1,10 +1,16 @@
 import styles from './shop.module.css';
+import SidebarFilter from './sidebar-filter/sidebar-filter.component';
+import ProductList from './product-list/product-list.component';
 
 const Shop = () => {
   return (
     <div className={styles.container}>
-      <h1>Shop</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, eligendi!</p>
+      <div className={styles.sidebarFilter}>
+        <SidebarFilter />
+      </div>
+      <div className={styles.content}>
+        <ProductList />
+      </div>
     </div>
   )
 }

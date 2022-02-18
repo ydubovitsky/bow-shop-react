@@ -12,7 +12,7 @@ const Sidebar = () => {
         <Logo />
       </div>
       <nav className={styles.navContainer}>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <Link to="/shop">Shop</Link>
         <Link to="/category">Category</Link>
         <Link to="/cart">Cart</Link>
