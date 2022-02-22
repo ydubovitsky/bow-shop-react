@@ -17,16 +17,45 @@ const ProductForm = () => {
 
   return (
     <div className={styles.container}>
-      <form ref={formEl}>
-        <input type="text" name="name" />
-        <input type="text" name="price" />
-        <input type="color" name="color" />
-        <input type="text" name="category" />
-        <input type="text" name="description" />
-        <input type="number" name="count" />
-        <input type="file" name="imageByte"/>
-      </form>
-      <button onClick={productFormHandler}>Send</button>
+      <div className={styles.form}>
+        <form ref={formEl}>
+          <div className={styles.inputContainer}>
+            <label htmlFor="name">Name</label>
+            <input type="text" name="name" />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="price">Price</label>
+            <input type="text" name="price" />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="color">Color</label>
+            <input type="color" name="color" />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="category">Category</label>
+            <input type="text" name="category" />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="description">Description</label>
+            <textarea name="description" />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="count">Count</label>
+            <input type="number" name="count" />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="imageByte">Image</label>
+            <input type="file" name="imageByte" />
+          </div>
+        </form>
+        <button onClick={productFormHandler}>Send</button>
+      </div>
     </div>
   )
 }
