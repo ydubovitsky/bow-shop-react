@@ -5,6 +5,7 @@ import CategoryList from './components/main/category/category-list/category-list
 import Main from './layers/main/main.layer';
 import Checkout from './components/main/checkout/checkout.component';
 import Shop from './components/main/shop/shop.component';
+import Admin from "./layers/admin/admin.layer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
         </Route>
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </div>
   );
