@@ -4,6 +4,12 @@
   padding: 5%;
 }
 
+.title {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
 .form {
   padding: 5% 20%;
   box-shadow: 1px 1px 2px 1px silver;
@@ -39,4 +45,9 @@
 .container textarea {
   min-height: 100px;
   border: 1px solid silver;
+}
+
+.buttonContainer {
+  display: grid;
+  justify-items: center;
 }

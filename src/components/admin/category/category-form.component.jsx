@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import {
   saveCategory
 } from '../../../redux/features/category/category.slice';
+import Button from '../../common/button/button.component';
 
 const CategoryForm = () => {
 
@@ -17,6 +18,7 @@ const CategoryForm = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.title}>Category</div>
       <div className={styles.form}>
         <form ref={formEl}>
           <div className={styles.inputContainer}>
@@ -34,7 +36,9 @@ const CategoryForm = () => {
             <input type="file" name="imageByte" />
           </div>
         </form>
-        <button onClick={productFormHandler}>Send</button>
+        <div className={styles.buttonContainer}>
+          <Button handler={{ onClick: productFormHandler }} name="Send" />
+        </div>
       </div>
     </div>
   )

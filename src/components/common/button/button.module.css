@@ -28,3 +28,7 @@
   background-color: black;
   color: white;
 }
+
+.container:active {
+  transform: scale(0.98);
+}

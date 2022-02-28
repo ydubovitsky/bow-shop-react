@@ -8,6 +8,11 @@
   /* font-style: italic; */
 }
 
+.title a {
+  color: white;
+  text-decoration: none;
+}
+
 .container img {
   position: absolute;
   top: -70%;
