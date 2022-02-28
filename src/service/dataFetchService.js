@@ -5,7 +5,7 @@ export const dataFetch = async (options) => {
   console.log('Send query with options: ' + JSON.stringify(options));
 
   const result = await axios(options)
-    .then(data => console.log(data))
+    .then(response => response.data)
     .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);

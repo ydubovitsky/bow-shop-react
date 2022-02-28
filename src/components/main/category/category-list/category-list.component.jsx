@@ -1,27 +1,42 @@
-import styles from './category-list.module.css';
+import React, { useEffect } from 'react';
+import {
+  useDispatch,
+  useSelector
+} from 'react-redux';
+import {
+  categoryByColumnSelector, getAllCategories
+} from '../../../../redux/features/category/category.slice';
 import CategoryItem from '../category-list-item/category-list-item.component';
-import item1 from '../../../../images/category-item/item1.jpg';
-import item2 from '../../../../images/category-item/item2.jpg';
-import item3 from '../../../../images/category-item/item3.jpg';
-import item4 from '../../../../images/category-item/item4.jpg';
+import styles from './category-list.module.css';
 
 const CategoryList = () => {
+
+  const dispatch = useDispatch();
+  const categoryByColumn = useSelector(categoryByColumnSelector);
+  const categoryStatus = useSelector(state => state.category.status);
+
+  useEffect(() => {
+    if (categoryStatus === 'idle') {
+      dispatch(getAllCategories());
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.oneColumn}>
-        <CategoryItem name="Basert Maquent" image={item1} price={200} />
-        <CategoryItem name="Qunder Maset" image={item2} price={200} />
-        <CategoryItem name="Merton Lomupart" image={item3} price={200} />
+        {categoryByColumn.one.map(category => (
+          <CategoryItem name={category.name} imageByte={category.imageByte} />
+        ))}
       </div>
       <div className={styles.twoColumn}>
-        <CategoryItem name="Basert Maquent" image={item1} price={200} />
-        <CategoryItem name="Qunder Maset" image={item2} price={200} />
-        <CategoryItem name="Merton Lomupart" image={item3} price={200} />
+        {categoryByColumn.two.map(category => (
+          <CategoryItem name={category.name} imageByte={category.imageByte} />
+        ))}
       </div>
       <div className={styles.threeColumn}>
-        <CategoryItem name="Zendex Calm" image={item1} price={200} />
-        <CategoryItem name="Mertolis Sertob" image={item4} price={200} />
-        <CategoryItem name="Indiat Lomal" image={item3} price={200} />
+        {categoryByColumn.three.map(category => (
+          <CategoryItem name={category.name} imageByte={category.imageByte} />
+        ))}
       </div>
     </div>
   )

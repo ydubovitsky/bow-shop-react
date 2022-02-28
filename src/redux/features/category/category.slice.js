@@ -19,14 +19,14 @@ export const getAllCategories = createAsyncThunk(
     }
 
     const response = await dataFetch(options);
-    return response.data
+    return response;
   }
 )
 
 export const saveCategory = createAsyncThunk(
   'category/saveCategory',
   async (category) => {
-    
+
     const options = {
       method: 'POST',
       data: category,
@@ -37,36 +37,64 @@ export const saveCategory = createAsyncThunk(
     }
 
     const response = await dataFetch(options);
-    return response.data
+    return response;
   }
-)
+);
 
+// -------------------------------- Slice --------------------------------
 
 const initialState = {
-  value: 0,
+  categoryEntities: [],
+  status: 'idle',
+  error: null
 }
 
 export const CategorySlice = createSlice({
   name: 'category',
   initialState,
-  reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    },
-  },
+  reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(getAllCategories.pending, (state, action) => {
+        state.status = 'loading'
+      })
+      .addCase(getAllCategories.fulfilled, (state, action) => {
+        const { payload } = action;
+        state.categoryEntities = state.categoryEntities.concat(payload);
+        state.status = 'succeeded'
+      })
+      .addCase(getAllCategories.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.error.message
+      })
+  }
 })
 
 // Action creators are generated for each case reducer function
 // export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 export default CategorySlice.reducer
+
+// -------------------------------- Selector --------------------------------
+
+export const allCategoriesSelector = (state) => state.category.categoryEntities;
+export const statusCategoriesSelector = state => state.category.status;
+export const categoryByColumnSelector = state => state.category
+  .categoryEntities.reduce((result, category) => {
+    if (category.id % 3 === 0) {
+      result.three.push(category);
+      return result;
+    }
+    if (category.id % 2 === 0) {
+      result.two.push(category)
+      return result;
+    }
+    else {
+      result.one.push(category);
+      return result;
+    }
+  }, {
+    one: [],
+    two: [],
+    three: []
+  });
