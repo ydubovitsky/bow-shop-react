@@ -1,18 +1,36 @@
 import styles from './sidebar-filter.module.css';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  categoriesNameSelector,
+  getAllCategories
+} from '../../../../redux/features/category/category.slice';
 
 const SidebarFilter = () => {
+
+  const dispatch = useDispatch();
+  const categoriesName = useSelector(categoriesNameSelector);
+  const categoryStatus = useSelector(state => state.category.status);
+
+  useEffect(() => {
+    if (categoryStatus === 'idle') {
+      dispatch(getAllCategories());
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>Categories</div>
       <div className={styles.categories}>
-        <Link to={"/school"}>School</Link>
-        <Link to={"/foamiran"}>Foamiran</Link>
-        <Link to={"/hairpins"}>Hairpins</Link>
-        <Link to={"/headbands"}>Headbands</Link>
-        <Link to={"/kits"}>Kits</Link>
-        <Link to={"/gift-baskets"}>Gift Baskets</Link>
+        {categoriesName.map(name => {
+          return (<NavLink
+            activeClassName={styles.active}
+            to={`/shop/${name}`}
+          >{name}
+          </NavLink>)
+        })}
       </div>
       <div className={styles.title}>Color</div>
       <div className={styles.colors}>
