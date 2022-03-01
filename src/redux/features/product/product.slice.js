@@ -19,14 +19,14 @@ export const getAllProducts = createAsyncThunk(
     }
 
     const response = await dataFetch(options);
-    return response.data
+    return response
   }
 )
 
 export const saveProduct = createAsyncThunk(
   'product/saveProduct',
   async (product) => {
-    
+
     const options = {
       method: 'POST',
       data: product,
@@ -37,13 +37,17 @@ export const saveProduct = createAsyncThunk(
     }
 
     const response = await dataFetch(options);
-    return response.data
+    return response
   }
 )
 
 
 const initialState = {
-  productEntities: [],
+  productEntities: {
+    products: [],
+    status: 'idle',
+    error: null
+  },
   status: 'idle',
   error: null
 }
@@ -59,12 +63,24 @@ export const productSlice = createSlice({
       })
       .addCase(saveProduct.fulfilled, (state, action) => {
         const { payload } = action;
-        state.categoryEntities = state.productEntities.concat(payload);
+        state.productEntities = state.productEntities.concat(payload);
         state.status = 'succeeded'
       })
       .addCase(saveProduct.rejected, (state, action) => {
         state.status = 'failed'
         state.error = action.error.message
+      })
+      .addCase(getAllProducts.pending, (state, action) => {
+        state.productEntities.status = 'loading'
+      })
+      .addCase(getAllProducts.fulfilled, (state, action) => {
+        const { payload } = action;
+        state.productEntities.products = state.productEntities.products.concat(payload);
+        state.productEntities.status = 'succeeded'
+      })
+      .addCase(getAllProducts.rejected, (state, action) => {
+        state.productEntities.status = 'failed'
+        state.productEntities.error = action.error.message
       })
   }
 })
@@ -73,4 +89,8 @@ export default productSlice.reducer
 
 // -------------------------------- Selector --------------------------------
 
-export const productStatusSelector = state => state.product.status;
+export const productEntitiesStatusSelector = state => state.product.productEntities.status;
+export const productByCategorySelector = (state, categoryName) => state.product
+  .productEntities.products.filter(product => {
+    return product.category.name === categoryName
+  });

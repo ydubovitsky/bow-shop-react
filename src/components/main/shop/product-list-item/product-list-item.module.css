@@ -1,0 +1,62 @@
+.container {
+  display: grid;
+  transition: 0.5s ease;
+  text-decoration: none;
+  min-height: 500px;
+  gap: 10px;
+}
+
+.container a {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container a:hover {
+  background-blend-mode: multiply;
+  background-color: rgb(133, 133, 133);
+}
+
+.hr {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: 3px;
+  background-color: #fbb710;
+  display: block;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-weight: bold;
+  line-height: 1;
+  color: #fbb710;
+  font-size: 24px;
+}
+
+.price .rating {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.price i {
+  font-size: 0.5rem;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.name i {
+  color: var(--two-text-color);
+  cursor: pointer;
+}
+

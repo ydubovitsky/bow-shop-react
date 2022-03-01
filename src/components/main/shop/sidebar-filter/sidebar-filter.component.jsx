@@ -26,7 +26,7 @@ const SidebarFilter = () => {
       <div className={styles.categories}>
         {categoriesName.map(name => {
           return (<NavLink
-            activeClassName={styles.active}
+            // activeClassName={styles.active}
             to={`/shop/${name}`}
           >{name}
           </NavLink>)

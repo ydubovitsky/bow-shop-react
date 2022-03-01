@@ -1,13 +1,19 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-areas: "sidebarFilter content";
+  grid-template-rows: min-content max-content;
+  grid-template-areas: "info" "productList";
+  gap: 20px;
+  padding: 5%;
+  padding-right: 10%;
 }
 
-.sidebarFilter {
-  grid-area: sidebarFilter;
+.info {
+  grid-area: info;
 }
 
-.content {
-  grid-area: content;
+.productList {
+  grid-area: productList;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
 }

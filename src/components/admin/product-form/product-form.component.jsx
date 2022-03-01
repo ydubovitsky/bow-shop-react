@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   saveProduct,
-  productStatusSelector
+  productEntitiesStatusSelector
 } from '../../../redux/features/product/product.slice';
 import {
   categoriesNameSelector,
@@ -18,7 +18,7 @@ const ProductForm = () => {
   const formEl = useRef(null);
   const categoriesName = useSelector(categoriesNameSelector);
   const categoryStatus = useSelector(state => state.category.status);
-  const productStatus = useSelector(productStatusSelector);
+  const productStatus = useSelector(productEntitiesStatusSelector);
 
   useEffect(() => {
     if (categoryStatus === 'idle') {
