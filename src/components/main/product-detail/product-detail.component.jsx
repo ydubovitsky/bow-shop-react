@@ -1,18 +1,23 @@
 import styles from './product-detail.module.css';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   productByIdSelector,
   recommendationProductsSelector
 } from '../../../redux/features/product/product.slice';
 import { useParams, Link } from "react-router-dom";
 import Button from '../../common/button/button.component';
+import CartIcon from '../../common/cart-icon/cart-icon.component';
+import { addProductToCart } from '../../../redux/features/cart/cart.slice';
+
 
 const ProductDetail = () => {
 
   let { id } = useParams();
+  const dispatch = useDispatch();
   const productById = useSelector(state => productByIdSelector(state, parseInt(id, 10)));
   const recommendationProducts = useSelector(recommendationProductsSelector);
-  console.log(productById);
+  const [productCount, setProductCount] = useState(0);
 
   //TODO Добавить настоящие рейтинг к продукту
   const showRating = () => {
@@ -29,6 +34,11 @@ const ProductDetail = () => {
         }}>
       </Link>
     })
+  }
+
+  const productCountFormHandler = (event) => {
+    const count = event.target.value;
+    setProductCount(count);
   }
 
   return (
@@ -50,16 +60,19 @@ const ProductDetail = () => {
         </div>
         <div className={styles.name}>
           <p>{productById.name}</p>
-          <i className="fas fa-cart-arrow-down"></i>
+          <CartIcon product={productById} count={productCount} />
         </div>
         <div className={styles.description}>
           <p>{productById.description}</p>
         </div>
         <div className={styles.count}>
           <label htmlFor="count">Count:</label>
-          <input type="number" name="count" id="" />
+          <input type="number" min="1" max="100" name="count" onChange={productCountFormHandler} />
         </div>
-        <Button name="Add to cart" />
+        <Button
+          name="Add to cart"
+          handler={{ onClick: () => dispatch(addProductToCart({ product: productById, count: productCount })) }}
+        />
       </div>
       <div className={styles.recommendation}>
         {showRecommendationProducts()}

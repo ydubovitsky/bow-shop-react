@@ -1,0 +1,57 @@
+.container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-rows: min-content max-content;
+  grid-template-areas: 
+  "title title"
+  "order total";
+  gap: 5%;
+  padding: 10% 5%;
+}
+
+.title {
+  grid-area: title;
+  text-align: left;
+}
+
+.order {
+  grid-area: order;
+  display: grid;
+  grid-template-rows: min-content max-content;
+  gap: 5%;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  font-size: 0.9rem;
+  background-color: var(--four-bg-color);
+}
+
+.total {
+  grid-area: total;
+  display: grid;
+  /* TODO FixME */
+  max-height: 500px; 
+  justify-items: center;
+  background-color: var(--four-bg-color);
+}
+
+.cartProduct {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  text-align: center;
+}
+
+.cartProduct img {
+  width: 100%;
+}
+
+.count {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--four-bg-color);
+}
