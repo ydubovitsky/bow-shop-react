@@ -1,0 +1,109 @@
+.container {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: min-content 500px min-content;
+  grid-template-areas: 
+  "category category"
+  "image info"
+  "recommendation .";
+  gap: 20px;
+  padding: 10% 0;
+}
+
+.category {
+  grid-area: category;
+  text-align: left;
+}
+
+.image {
+  grid-area: image;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hr {
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  font-family: "helveticaneuemedium";
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: 3px;
+  background-color: #fbb710;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.info {
+  display: grid;
+  align-items: center;
+  align-content: space-between;
+  gap: 10px;
+  text-align: left;
+  padding-right: 20%;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-weight: bold;
+  line-height: 1;
+  color: #fbb710;
+  font-size: 24px;
+}
+
+.rating {
+  display: flex;
+  color: #fbb710;
+}
+
+.price i {
+  font-size: 0.5rem;
+}
+
+.name {
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name i {
+  color: var(--two-text-color);
+  cursor: pointer;
+}
+
+.count {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #F5F7FA;
+  padding: 5%;
+  color: silver;
+  font-weight: bold;
+}
+
+.count input {
+  border: none;
+  background-color: white !important;
+}
+
+.recommendation {
+  grid-area: recommendation;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recommendation a {
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

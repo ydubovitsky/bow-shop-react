@@ -94,3 +94,8 @@ export const productByCategorySelector = (state, categoryName) => state.product
   .productEntities.products.filter(product => {
     return product.category.name === categoryName
   });
+export const productByIdSelector = (state, id) => state.product
+  .productEntities.products.filter(product => product.id === id)[0];
+export const recommendationProductsSelector = state => {
+  return state.product.productEntities.products.filter(product => product.id < 4);
+}

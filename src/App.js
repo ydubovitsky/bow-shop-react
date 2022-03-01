@@ -8,6 +8,7 @@ import Shop from './components/main/shop/shop.component';
 import Admin from "./layers/admin/admin.layer";
 import ProductForm from './components/admin/product-form/product-form.component';
 import CategoryForm from "./components/admin/category/category-form.component";
+import ProductDetail from "./components/main/product-detail/product-detail.component";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="shop" element={<Shop />} />
           <Route path="category" element={<CategoryList />} />
           <Route path="shop/:name" element={<Shop />} />
+          <Route path="shop/:category/:id" element={<ProductDetail />} />
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
         </Route>

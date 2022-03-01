@@ -13,7 +13,7 @@ const ProductListItem = ({ product }) => {
   return (
     <div className={styles.container}>
       <Link
-        to={`/shop/${product.name}`}
+        to={`/shop/${product.category.name}/${product.id}`}
         className={styles.container}
         style={{
           backgroundImage: `url(data:image/png;base64,${product.imageByte})`,
