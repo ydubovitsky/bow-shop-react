@@ -1,5 +1,6 @@
 import styles from './product-list-item.module.css';
 import { Link } from 'react-router-dom';
+import CartIcon from '../../../common/cart-icon/cart-icon.component';
 
 const ProductListItem = ({ product }) => {
 
@@ -28,7 +29,7 @@ const ProductListItem = ({ product }) => {
       </div>
       <div className={styles.name}>
         <p>{product.name}</p>
-        <i className="fas fa-cart-arrow-down"></i>
+        <CartIcon product={product} count={1} />
       </div>
     </div>
   )

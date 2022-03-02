@@ -3,6 +3,11 @@ import {
   createAsyncThunk
 } from '@reduxjs/toolkit';
 import { dataFetch } from '../../../service/dataFetchService';
+// -------------------------------- Const --------------------------------
+//TODO Внести в state?
+const MAX_CART_PRODUCT_COUNT = 99;
+const MIN_CART_PRODUCT_COUNT = 1;
+
 
 // -------------------------------- AsyncThunk --------------------------------
 
@@ -37,6 +42,34 @@ export const cartSlice = createSlice({
       reducer(state, action) {
         state.cartEntities.push(action.payload)
       }
+    },
+    decreaseProductCount: {
+      reducer(state, action) {
+        const { product } = action.payload;
+        const idx = state.cartEntities.findIndex(entity => entity.product.id === product.id);
+        if (state.cartEntities[idx].count > MIN_CART_PRODUCT_COUNT) {
+          --state.cartEntities[idx].count;
+        }
+        else {
+          state.cartEntities.splice(idx, 1);
+        }
+      }
+    },
+    increaseProductCount: {
+      reducer(state, action) {
+        const { product } = action.payload;
+        const idx = state.cartEntities.findIndex(entity => entity.product.id === product.id);
+        if (state.cartEntities[idx].count < MAX_CART_PRODUCT_COUNT) {
+          state.cartEntities[idx].count++;
+        }
+      }
+    },
+    removeProduct: {
+      reducer(state, action) {
+        const { product } = action.payload;
+        const idx = state.cartEntities.findIndex(entity => entity.product.id === product.id);
+        state.cartEntities.splice(idx, 1);
+      }
     }
   },
   // extraReducers(builder) {
@@ -68,7 +101,11 @@ export const cartSlice = createSlice({
   // }
 })
 
-export const { addProductToCart } = cartSlice.actions;
+export const {
+  addProductToCart,
+  increaseProductCount,
+  decreaseProductCount,
+  removeProduct } = cartSlice.actions;
 
 export default cartSlice.reducer;
 
@@ -80,3 +117,6 @@ export const cartTotalPriceSelector = state => state.cart.cartEntities
     console.log(product);
     return sum + parseInt(product.price, 10) * count
   }, 0);
+export const cartProductEntitiesNumberSelector = state => state.cart.cartEntities.length;
+export const cartProductTotalCountSelector = state => state.cart.cartEntities
+  .reduce((sum, { count }) => sum + parseInt(count, 10), 0);
