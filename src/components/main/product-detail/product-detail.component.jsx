@@ -58,6 +58,13 @@ const ProductDetail = () => {
         <div className={styles.rating}>
           {showRating()}
         </div>
+        <div className={styles.count}>
+          <p>Product count: {productById.count}</p>
+          <div
+            className={styles.isAvailable}
+            style={productById.count < 0 ? { backgroundColor: 'red' } : null}
+          ></div>
+        </div>
         <div className={styles.name}>
           <p>{productById.name}</p>
           <CartIcon product={productById} count={productCount} />
@@ -65,9 +72,16 @@ const ProductDetail = () => {
         <div className={styles.description}>
           <p>{productById.description}</p>
         </div>
-        <div className={styles.count}>
+        <div className={styles.orderCount}>
           <label htmlFor="count">Count:</label>
-          <input type="number" min="1" max="100" name="count" onChange={productCountFormHandler} />
+          <input
+            type="number"
+            min="1"
+            max="100"
+            name="count"
+            onChange={productCountFormHandler}
+            placeholder="1"
+          />
         </div>
         <Button
           name="Add to cart"
