@@ -23,7 +23,7 @@
   padding: 0;
   width: 80px;
   height: 3px;
-  background-color: #fbb710;
+  background-color: var(--three-text-color);
   display: block;
 }
 
@@ -34,7 +34,7 @@
   text-align: left;
   font-weight: bold;
   line-height: 1;
-  color: #fbb710;
+  color: var(--three-text-color);
   font-size: 24px;
 }
 

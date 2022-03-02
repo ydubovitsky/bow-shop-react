@@ -40,7 +40,7 @@ const SidebarFilter = () => {
         <div className={cn(styles.color, styles.yellow)}></div>
         <div className={cn(styles.color, styles.purple)}></div>
         <div className={cn(styles.color, styles.white)}></div>
-        <div className={cn(styles.color, styles.orange)}></div>
+        <div className={cn(styles.color, styles.black)}></div>
         <div className={cn(styles.color, styles.coral)}></div>
       </div>
       <div className={styles.title}>Price</div>

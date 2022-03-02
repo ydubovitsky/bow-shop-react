@@ -4,6 +4,8 @@
   background-size: cover;
   transition: 0.5s ease;
   text-decoration: none;
+  background-blend-mode: multiply;
+  background-color: rgb(231, 231, 231);
   margin: 5px;
   padding: 5%;
 }
@@ -13,14 +15,34 @@
   background-color: rgb(133, 133, 133);
 }
 
+.hr {
+  line-height: 1.5;
+  text-align: left;
+  font-family: "helveticaneuemedium";
+  color: #131212;
+  font-weight: 400;
+  font-size: 12px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--three-text-color);
+  display: block;
+  margin-bottom: 15px;
+}
+
 .name {
+  text-align: left;
   font-size: 2rem;
+  font-weight: bold;
   color: white;
-  text-shadow: 1px 2px 2px black;
+  text-shadow: 1px 2px 2px black, 5px 5px 5px silver;
 }
 
 .price {
   font-size: 1.5rem;
   color: white;
+  text-align: left;
   text-shadow: 1px 1px 1px black;
 }

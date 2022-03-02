@@ -6,6 +6,7 @@
 
 .sidebarFilter {
   grid-area: sidebarFilter;
+  background-color: var(--four-bg-color);
 }
 
 .content {

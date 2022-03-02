@@ -5,10 +5,16 @@ import {
 } from 'react-router-dom';
 
 const Footer = () => {
+
+  const logoStyles = {
+    color: 'white',
+    textDecoration: 'none'
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.oneColumn}>
-        <Logo style={{ 'color': 'white' }} />
+        <Logo style={logoStyles} />
       </div>
       <div className={styles.twoColumn}>
         <nav className={styles.navContainer}>

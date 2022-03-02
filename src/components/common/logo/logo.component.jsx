@@ -4,12 +4,18 @@ import { Link } from 'react-router-dom';
 
 const Logo = ({ style }) => {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}
+    <div className={styles.container}
+    >
+      <Link to="/"
         style={{ ...style }}
-      ><Link to="/">Migliori Archi</Link>
-      </h1>
-      {/* <img src={logo} alt="" srcset="" /> */}
+      >
+        <div className={styles.title}>
+          <p>Migliori Archi <i className="fas fa-ribbon"></i></p>
+        </div>
+        <div className={styles.subTitle}>
+          <p>beauty & style</p>
+        </div>
+      </Link>
     </div>
   )
 }

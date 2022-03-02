@@ -1,20 +1,32 @@
 .container {
   display: grid;
   justify-items: left;
-  padding: 75px;
+  padding: 50px;
   gap: 50px;
   text-transform: uppercase;
+}
+
+.logo {
+  padding-bottom: 25%;
 }
 
 .container a {
   text-decoration: none;
   color: black;
+  font-size: 0.9rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.container a:hover {
+  color: var(--three-text-color);
 }
 
 .navContainer {
   display: grid;
   justify-items: left;
-  gap: 50px;
+  gap: 30px;
 }
 
 .buttonContainer {

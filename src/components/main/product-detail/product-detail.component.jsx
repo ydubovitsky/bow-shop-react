@@ -89,7 +89,10 @@ const ProductDetail = () => {
         />
       </div>
       <div className={styles.recommendation}>
-        {showRecommendationProducts()}
+        <p>Recommended products:</p>
+        <div className={styles.recProducts}>
+          {showRecommendationProducts()}
+        </div>
       </div>
     </div>
   )

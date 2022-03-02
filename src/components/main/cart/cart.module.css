@@ -2,16 +2,18 @@
   display: grid;
   grid-template-columns: 5fr 2fr;
   grid-template-rows: min-content max-content;
-  grid-template-areas: 
-  "title title"
-  "order total";
+  grid-template-areas:
+    "title title"
+    "order total";
   gap: 5%;
   padding: 10% 5%;
+  font-family: 'Oswald', sans-serif;
 }
 
 .title {
   grid-area: title;
   text-align: left;
+  font-size: 1.5rem;
 }
 
 .order {
@@ -32,9 +34,10 @@
   grid-area: total;
   display: grid;
   /* TODO FixME */
-  max-height: 500px; 
+  max-height: 500px;
   justify-items: center;
   background-color: var(--four-bg-color);
+  padding: 10% 0;
 }
 
 .cartProduct {
@@ -54,4 +57,14 @@
   align-items: center;
   padding: 0.5rem;
   background-color: var(--four-bg-color);
+}
+
+.count i,
+.trash i {
+  cursor: pointer;
+}
+
+.count i:active,
+.trash i:active {
+  transform: scale(0.95);
 }

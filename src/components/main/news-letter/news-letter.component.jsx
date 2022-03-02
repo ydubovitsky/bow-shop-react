@@ -5,7 +5,7 @@ const NewsLetter = () => {
     <div className={styles.container}>
       <div className={styles.oneColumn}>
         <div className={styles.title}>
-          Subscribe for a 25% Discount
+          Subscribe for a <span className={styles.discount}>25% Discount</span>
         </div>
         <div className={styles.subTitle}>
           Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec auctor interdum purus, ac finibus massa bibendum nec.

@@ -21,6 +21,10 @@
   color: #fff;
 }
 
+.discount {
+  color: var(--three-text-color);
+}
+
 .subTitle {
   color: var(--two-text-color);
 }
@@ -57,7 +61,7 @@
   -webkit-appearance: button;
   transition-duration: 500ms;
   height: 50px;
-  background-color: #fbb710;
+  background-color: var(--three-text-color);
   color: #fff;
   font-size: 14px;
   padding: 0 30px;

@@ -8,11 +8,14 @@
     "recommendation .";
   gap: 20px;
   padding: 10% 0;
+  
 }
 
 .category {
   grid-area: category;
   text-align: left;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
 }
 
 .image {
@@ -34,7 +37,7 @@
   padding: 0;
   width: 80px;
   height: 3px;
-  background-color: #fbb710;
+  background-color: var(--three-text-color);
   margin-bottom: 15px;
   display: block;
 }
@@ -55,13 +58,13 @@
   text-align: left;
   font-weight: bold;
   line-height: 1;
-  color: #fbb710;
+  color: var(--three-text-color);
   font-size: 24px;
 }
 
 .rating {
   display: flex;
-  color: #fbb710;
+  color: var(--three-text-color);
 }
 
 .price i {
@@ -114,15 +117,31 @@
 }
 
 .recommendation {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: "." "recommendation";
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+}
+
+.recProducts {
   grid-area: recommendation;
   display: flex;
   justify-content: space-between;
 }
 
-.recommendation a {
+.recProducts a {
   width: 200px;
   height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-blend-mode: multiply;
+  transition: 0.2s ease-in;
+  background-color: none;
+}
+
+.recProducts a:hover {
+  background-color: silver;
 }

@@ -16,6 +16,8 @@ const CategoryListItem = ({ imageByte, name }) => {
         backgroundImage: `url(data:image/png;base64,${imageByte})`,
         minHeight: randomInteger(200, 350) + 'px'
       }}>
+      <div className={styles.hr}></div>
+      <div className={styles.price}>Цена от {randomInteger(100, 200)} р</div>
       <div className={styles.name}>{name}</div>
     </Link>
   )
