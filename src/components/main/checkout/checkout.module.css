@@ -1,0 +1,54 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: 
+  "title title"
+  "checkoutForm cartTotal";
+  padding: 5%;
+  gap: 5%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.title {
+  grid-area: title;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.contactsForm {
+  grid-area: checkoutForm;
+  display: grid;
+  gap: 5%;
+}
+
+.fioContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+}
+
+.cartTotal {
+  grid-area: cartTotal;
+}
+
+.container input,
+.container textarea {
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 1.5;
+  border: none;
+  height: 1.5rem;
+  background-color: #f5f7fa;
+  padding: 30px;
+  color: #6b6b6b;
+  font-size: 1rem;
+}
+
+.container input:focus,
+.container textarea:focus {
+  /* border-color: red; */
+}
+
+.container textarea {
+  min-height: 200px;
+}

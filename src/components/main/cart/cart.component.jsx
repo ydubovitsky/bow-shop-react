@@ -1,23 +1,17 @@
-import styles from './cart.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  cartEntitiesSelector,
-  cartTotalPriceSelector,
-  cartProductEntitiesNumberSelector,
-  cartProductTotalCountSelector,
-  decreaseProductCount,
+  cartEntitiesSelector, decreaseProductCount,
   increaseProductCount,
   removeProduct
 } from '../../../redux/features/cart/cart.slice';
-import Button from '../../common/button/button.component';
+import styles from './cart.module.css';
+import CartTotal from '../../common/cart-total/cart-total.component';
 
 const Cart = () => {
 
   const dispatch = useDispatch();
   const cartEntities = useSelector(cartEntitiesSelector);
-  const cartTotalPrice = useSelector(cartTotalPriceSelector);
-  const cartProductEntitiesNumber = useSelector(cartProductEntitiesNumberSelector);
-  const cartProductTotalCount = useSelector(cartProductTotalCountSelector);
+
 
   const showCartProduct = () => {
     return cartEntities?.map(({ product, count }) => {
@@ -61,13 +55,7 @@ const Cart = () => {
         </div>
         {showCartProduct()}
       </div>
-      <div className={styles.total}>
-        <h1>Total</h1>
-        <p>Total cost: {cartTotalPrice} р.</p>
-        <p>Product number: {cartProductEntitiesNumber}</p>
-        <p>Total product count: {cartProductTotalCount}</p>
-        <Button name={"Checkout"} />
-      </div>
+      <CartTotal />
     </div>
   )
 }
