@@ -62,7 +62,7 @@ const ProductDetail = () => {
           <p>Product count: {productById.count}</p>
           <div
             className={styles.isAvailable}
-            style={productById.count < 0 ? { backgroundColor: 'red' } : null}
+            style={productById.count <= 0 ? { backgroundColor: 'red' } : null}
           ></div>
         </div>
         <div className={styles.name}>
