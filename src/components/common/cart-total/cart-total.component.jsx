@@ -7,13 +7,28 @@ import Button from '../../common/button/button.component';
 import styles from './cart-total.module.css';
 import { useDispatch } from 'react-redux';
 import { makeOrder } from '../../../redux/features/checkout/checkout.slice';
+import { useNavigate } from "react-router-dom";
 
 const CartTotal = ({ contactsData }) => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartTotalPrice = useSelector(cartTotalPriceSelector);
   const cartProductEntitiesNumber = useSelector(cartProductEntitiesNumberSelector);
   const cartProductTotalCount = useSelector(cartProductTotalCountSelector);
+
+  const makeOrderHandler = (contactsData) => {
+    if (validateContactsData(contactsData)) {
+      dispatch(makeOrder(contactsData));
+    } else {
+      navigate("/checkout");
+    }
+  }
+
+  const validateContactsData = (contactsData) => {
+    if (!contactsData?.email && !contactsData?.phone) return false;
+    return true;
+  }
 
   return (
     <div className={styles.container}>
@@ -23,8 +38,7 @@ const CartTotal = ({ contactsData }) => {
       <p>Total product count: {cartProductTotalCount}</p>
       <Button
         name={"Checkout"}
-        //TODO Если данных для заказа нет, то не обрабатывать клик!
-        handler={{ onClick: () => dispatch(makeOrder(contactsData)) }}
+        handler={{ onClick: () => makeOrderHandler(contactsData) }}
       />
     </div>
   )
