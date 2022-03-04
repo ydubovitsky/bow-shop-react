@@ -53,7 +53,7 @@ const ProductDetail = () => {
       <div className={styles.info}>
         <div className={styles.hr}></div>
         <div className={styles.price}>
-          <p>{productById.price} р.</p>
+          <span>{productById.price} р.</span>
         </div>
         <div className={styles.rating}>
           {showRating()}
@@ -66,7 +66,7 @@ const ProductDetail = () => {
           ></div>
         </div>
         <div className={styles.name}>
-          <p>{productById.name}</p>
+          <span>{productById.name}</span>
           <CartIcon product={productById} count={productCount} />
         </div>
         <div className={styles.description}>
@@ -79,8 +79,8 @@ const ProductDetail = () => {
             min="1"
             max="100"
             name="count"
+            defaultValue={1}
             onChange={productCountFormHandler}
-            placeholder="1"
           />
         </div>
         <Button

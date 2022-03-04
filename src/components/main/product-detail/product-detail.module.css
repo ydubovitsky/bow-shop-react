@@ -8,7 +8,6 @@
     "recommendation .";
   gap: 20px;
   padding: 10% 0;
-  
 }
 
 .category {
@@ -38,7 +37,6 @@
   width: 80px;
   height: 3px;
   background-color: var(--three-text-color);
-  margin-bottom: 15px;
   display: block;
 }
 
@@ -67,8 +65,8 @@
   color: var(--three-text-color);
 }
 
-.price i {
-  font-size: 0.5rem;
+.rating i {
+  font-size: 0.8rem;
 }
 
 .count {
