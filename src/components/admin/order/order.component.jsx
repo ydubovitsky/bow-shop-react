@@ -3,7 +3,9 @@ import {
   useDispatch, useSelector
 } from 'react-redux';
 import {
-  getAllOrders, orderEntitiesSelector
+  getAllOrders,
+  orderEntitiesSelector,
+  deleteOrderById
 } from '../../../redux/features/checkout/checkout.slice';
 import styles from './order.module.css';
 import Loader from '../loader/loader.component';
@@ -27,7 +29,7 @@ const Order = () => {
           <p>{order.orderStatus}</p>
           <i
             className="fas fa-trash"
-          // onClick={() => dispatch(removeProduct({ product, count }))}
+            onClick={() => dispatch(deleteOrderById(order.id))}
           ></i>
         </div>
       )

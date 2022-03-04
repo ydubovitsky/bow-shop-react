@@ -52,6 +52,22 @@ export const getAllOrders = createAsyncThunk(
   }
 )
 
+export const deleteOrderById = createAsyncThunk(
+  'checkout/deleteOrderById',
+  async (id) => {
+    const options = {
+      method: 'DELETE',
+      url: `http://localhost:8080/api/v1/order/delete/${id}`,
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }
+
+    const response = await dataFetch(options);
+    return response
+  }
+)
+
 const initialState = {
   orderEntities: {
     orders: [],
@@ -71,6 +87,7 @@ export const checkoutSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
+      //! makeOrder
       .addCase(makeOrder.pending, (state, action) => {
         state.currentOrder.status = 'loading'
       })
@@ -83,7 +100,7 @@ export const checkoutSlice = createSlice({
         state.currentOrder.status = 'failed'
         state.currentOrder.error = action.error.message
       })
-      //! Next reducer bellow
+      //! getAllOrders
       .addCase(getAllOrders.pending, (state, action) => {
         state.orderEntities.status = 'loading'
       })
@@ -95,6 +112,12 @@ export const checkoutSlice = createSlice({
       .addCase(getAllOrders.rejected, (state, action) => {
         state.orderEntities.status = 'failed'
         state.orderEntities.error = action.error.message
+      })
+      //! deleteOrderById
+      .addCase(deleteOrderById.fulfilled, (state, action) => {
+        const { payload: orderId } = action;
+        const idx = state.orderEntities.orders.findIndex(order => order.id === orderId);
+        state.orderEntities.orders.splice(idx, 1);
       })
   }
 })
