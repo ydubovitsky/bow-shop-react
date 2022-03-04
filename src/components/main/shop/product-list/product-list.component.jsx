@@ -7,6 +7,7 @@ import {
   productEntitiesStatusSelector,
   productByCategorySelector
 } from '../../../../redux/features/product/product.slice';
+import { categoryDescriptionByNameSelector } from '../../../../redux/features/category/category.slice';
 import ProductListItem from '../product-list-item/product-list-item.component';
 
 const ProductList = () => {
@@ -14,7 +15,8 @@ const ProductList = () => {
   let { name } = useParams();
   const dispatch = useDispatch();
   const productEntitiesStatus = useSelector(productEntitiesStatusSelector);
-  const productByCategory = useSelector((state) => productByCategorySelector(state, name))
+  const productByCategory = useSelector((state) => productByCategorySelector(state, name));
+  const categoryDescriptionByName = useSelector(state => categoryDescriptionByNameSelector(state, name));
 
   useEffect(() => {
     if (productEntitiesStatus === 'idle') {
@@ -26,7 +28,7 @@ const ProductList = () => {
     <div className={styles.container}>
       <div className={styles.info}>
         <h1>{name}</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, eligendi!</p>
+        <p>{categoryDescriptionByName}</p>
       </div>
       <div className={styles.productList}>
         {productByCategory.map(product => <ProductListItem product={product} />)}

@@ -100,3 +100,5 @@ export const categoryByColumnSelector = state => state.category
   });
 export const categoriesNameSelector = state => state.category
   .categoryEntities.map(category => category.name);
+export const categoryDescriptionByNameSelector = (state, name) => state.category
+  .categoryEntities.find(category => category.name === name).description;
