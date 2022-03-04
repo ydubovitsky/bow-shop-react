@@ -9,6 +9,7 @@ const Header = () => {
       <div className={styles.nav}>
         <NavLink to={"/admin/product"}>Product</NavLink>
         <NavLink to={"/admin/category"}>Category</NavLink>
+        <NavLink to={"/admin/order"}>Orders</NavLink>
       </div>
       <div className={styles.user}>
         <h3>Hello, User</h3>

@@ -1,0 +1,51 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "title"
+    "order";
+  gap: 5%;
+  padding: 5%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.title {
+  grid-area: title;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 5fr 2fr 1fr 1fr;
+  font-size: 0.9rem;
+  background-color: var(--four-bg-color);
+}
+
+.tableContent {
+  display: grid;
+  gap: 5%;
+}
+
+.orderRow {
+  display: grid;
+  grid-template-columns: 5fr 2fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px solid silver;
+}
+
+.orderItem {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 3fr;
+}
+
+.productItem {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.productItem .image img{
+  width: 100%;
+}

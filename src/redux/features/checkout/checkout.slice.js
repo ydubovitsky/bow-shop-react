@@ -35,14 +35,34 @@ export const makeOrder = createAsyncThunk(
   }
 )
 
+export const getAllOrders = createAsyncThunk(
+  'checkout/getAllOrders',
+  async () => {
+
+    const options = {
+      method: 'GET',
+      url: 'http://localhost:8080/api/v1/order/all',
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }
+
+    const response = await dataFetch(options);
+    return response
+  }
+)
+
 const initialState = {
-  productEntities: {
-    products: [],
+  orderEntities: {
+    orders: [],
     status: 'idle',
     error: null
   },
-  status: 'idle',
-  error: null
+  currentOrder: {
+    order: [],
+    status: 'idle',
+    error: null
+  }
 }
 
 export const checkoutSlice = createSlice({
@@ -52,16 +72,29 @@ export const checkoutSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(makeOrder.pending, (state, action) => {
-        state.status = 'loading'
+        state.currentOrder.status = 'loading'
       })
       .addCase(makeOrder.fulfilled, (state, action) => {
         const { payload } = action;
-        state.productEntities = state.productEntities.concat(payload);
+        state.currentOrder.order = payload;
         state.status = 'succeeded'
       })
       .addCase(makeOrder.rejected, (state, action) => {
-        state.status = 'failed'
-        state.error = action.error.message
+        state.currentOrder.status = 'failed'
+        state.currentOrder.error = action.error.message
+      })
+      //! Next reducer bellow
+      .addCase(getAllOrders.pending, (state, action) => {
+        state.orderEntities.status = 'loading'
+      })
+      .addCase(getAllOrders.fulfilled, (state, action) => {
+        const { payload } = action;
+        state.orderEntities.orders = payload;
+        state.orderEntities.status = 'succeeded'
+      })
+      .addCase(getAllOrders.rejected, (state, action) => {
+        state.orderEntities.status = 'failed'
+        state.orderEntities.error = action.error.message
       })
   }
 })
@@ -70,6 +103,7 @@ export default checkoutSlice.reducer
 
 // -------------------------------- Selector --------------------------------
 
+export const orderEntitiesSelector = state => state.checkout.orderEntities;
 
 // -------------------------------- Utils --------------------------------
 const createOrderEntity = (args, cart) => {

@@ -17,6 +17,8 @@ const Sidebar = () => {
         <Logo />
       </div>
       <nav className={styles.navContainer}>
+        <Link to="/sign-in">Sign In</Link>
+        <Link to="/admin">Admin</Link>
         <Link to="/home">Home</Link>
         <Link to="/shop">Shop</Link>
         <Link to="/category">Category</Link>
