@@ -22,13 +22,13 @@ const ProductListItem = ({ product }) => {
       </Link>
       <div className={styles.hr}></div>
       <div className={styles.price}>
-        <p>{product.price} р.</p>
+        <span>{product.price} р.</span>
         <div className={styles.rating}>
           {showRating()}
         </div>
       </div>
       <div className={styles.name}>
-        <p>{product.name}</p>
+        <span>{product.name}</span>
         <CartIcon product={product} count={1} />
       </div>
     </div>

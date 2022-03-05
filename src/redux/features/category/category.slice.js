@@ -100,5 +100,15 @@ export const categoryByColumnSelector = state => state.category
   });
 export const categoriesNameSelector = state => state.category
   .categoryEntities.map(category => category.name);
-export const categoryDescriptionByNameSelector = (state, name) => state.category
-  .categoryEntities.find(category => category.name === name).description;
+export const categoryInfoSelector = (state, name) => state.category
+  .categoryEntities
+  .filter(category => category.name === name)
+  .reduce((info, category) => (
+    {
+      ...info,
+      name: category.name,
+      description: category.description
+    }), {});
+export const firstCategoryElementNameSelector = (state) => {
+  return state.category.categoryEntities[0]?.name;
+}

@@ -43,12 +43,15 @@ const SidebarFilter = () => {
         <div className={cn(styles.color, styles.black)}></div>
         <div className={cn(styles.color, styles.coral)}></div>
       </div>
-      <div className={styles.title}>Price</div>
       <div className={styles.price}>
+        <div className={styles.title}>
+          <span>Price</span>
+        </div>
         <div className={styles.line}>
           <div className={styles.ballStart}></div>
           <div className={styles.ballEnd}></div>
         </div>
+        <div className={styles.cost}>100р - 1000р</div>
       </div>
     </div>
   )
