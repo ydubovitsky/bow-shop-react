@@ -2,7 +2,7 @@
   display: grid;
   background-color: var(--three-bg-color);
   padding: 20px 100px;
-  grid-template-columns: min-content 1fr max-content;
+  grid-template-columns: max-content 1fr max-content;
   align-items: center;
   color: white;
 }
@@ -17,4 +17,9 @@
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
+  transition: 0.3 ease-in;
+}
+
+.nav a:hover {
+  color: var(--three-text-color);
 }

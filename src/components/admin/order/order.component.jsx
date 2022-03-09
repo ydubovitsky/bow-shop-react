@@ -25,7 +25,7 @@ const Order = () => {
     return orders.map(order => {
       return (
         <div className={styles.orderRow}>
-          <div className="">{order.id}</div>
+          <div className="">Order id: {order.id}</div>
           {showOrderInfo(order.orderItems)}
           {showAddress(order.contacts)}
           <p>{order.orderStatus}</p>
@@ -41,11 +41,6 @@ const Order = () => {
   const showOrderInfo = (orderItems) => {
     return (
       <div className={styles.orderItems}>
-        <div className={styles.orderItemsTable}>
-          <p>Product Id</p>
-          <p>Count</p>
-          <p>Product</p>
-        </div>
         {orderItems.map(orderItem => showOrderItem(orderItem))}
       </div>
     )
@@ -83,6 +78,7 @@ const Order = () => {
         <div className="">{contact.firstName}</div>
         <div className="">{contact.lastName}</div>
         <div className="">{contact.phone}</div>
+        <div className="">{contact.email}</div>
         <div className="">{contact.country}</div>
         <div className="">{contact.town}</div>
         <div className="">{contact.zipCode}</div>
@@ -96,17 +92,38 @@ const Order = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Order List</div>
-      <div className={styles.order}>
-        <div className={styles.table}>
-          <p>№</p>
-          <p>Order info</p>
-          <p>Address</p>
-          <p>Status</p>
-          <p>Remove</p>
-        </div>
-        <div className={styles.tableContent}>
-          {showOrderRow(orderEntities.orders)}
+      <div className={styles.title}>Orders</div>
+      <div className={styles.orderList}>
+        <div className={styles.order}>
+          <div className={styles.table}>
+            <div className={styles.tableColumn}>
+              <p>№</p>
+            </div>
+            <div className={styles.tableColumn}>
+              <div className={styles.orderInfo}>
+                <div className={styles.orderInfoHeader}>
+                  <p>Order info</p>
+                </div>
+                <div className={styles.subTable}>
+                  <p>Product Id</p>
+                  <p>Count</p>
+                  <p>Product</p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.tableColumn}>
+              <p>Address</p>
+            </div>
+            <div className={styles.tableColumn}>
+              <p>Status</p>
+            </div>
+            <div className={styles.tableColumn}>
+              <p>Remove</p>
+            </div>
+          </div>
+          <div className={styles.tableContent}>
+            {showOrderRow(orderEntities.orders)}
+          </div>
         </div>
       </div>
     </div>

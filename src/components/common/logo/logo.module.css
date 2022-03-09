@@ -10,10 +10,6 @@
   transform: rotate(5deg);
 }
 
-.title p:hover {
-  font-size: 1.6rem;
-}
-
 .subTitle p {
   font-size: 0.8rem;
   transform: rotate(-5deg);
