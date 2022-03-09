@@ -3,7 +3,7 @@
   grid-template-areas:
     "title"
     "order";
-  gap: 5%;
+  gap: 25px;
   padding: 5%;
   font-family: 'Oswald', sans-serif;
 }

@@ -5,7 +5,7 @@
   grid-template-areas:
     "title title"
     "order total";
-  gap: 5%;
+  gap: 25px;
   padding: 10% 5%;
   font-family: 'Oswald', sans-serif;
 }
@@ -20,7 +20,7 @@
   grid-area: order;
   display: grid;
   grid-template-rows: min-content max-content;
-  gap: 5%;
+  gap: 25px;
 }
 
 .table {
@@ -35,6 +35,8 @@
   align-items: center;
   grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
   text-align: center;
+  /* FIXME Что-то не то тут с отступами */
+  /* margin: 5px 0; */
 }
 
 .cartProduct img {
