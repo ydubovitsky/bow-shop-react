@@ -21,11 +21,13 @@ const Order = () => {
   }, [])
 
   const showOrderRow = (orders) => {
+    console.log(orders);
     return orders.map(order => {
       return (
         <div className={styles.orderRow}>
-          {order.orderItems.map(item => showOrderItemInfo(item))}
-          {showContactInfo(order.contacts)}
+          <div className="">{order.id}</div>
+          {showOrderInfo(order.orderItems)}
+          {showAddress(order.contacts)}
           <p>{order.orderStatus}</p>
           <i
             className="fas fa-trash"
@@ -36,17 +38,45 @@ const Order = () => {
     })
   }
 
-  const showOrderItemInfo = (orderItem) => {
+  const showOrderInfo = (orderItems) => {
     return (
-      <div className={styles.orderItem}>
-        <div className="">Order id: {orderItem.id}</div>
-        <div className="">Count: {orderItem.count}</div>
-        {showProductItemInfo(orderItem.product)}
+      <div className={styles.orderItems}>
+        <div className={styles.orderItemsTable}>
+          <p>Product Id</p>
+          <p>Count</p>
+          <p>Product</p>
+        </div>
+        {orderItems.map(orderItem => showOrderItem(orderItem))}
       </div>
     )
   }
 
-  const showContactInfo = (contact) => {
+  const showOrderItem = ({ id, product, count }) => {
+    return (
+      <div className={styles.orderItem}>
+        <div className="">{id}</div>
+        <div className="">{count}</div>
+        {showProduct(product)}
+      </div>
+    )
+  }
+
+  const showProduct = (product) => {
+    return (
+      <div className={styles.productItem}>
+        <div className={styles.description}>
+          <div className="">Product id: {product.id}</div>
+          <div className="">Product name: {product.name}</div>
+          <div className="">Product price: {product.price}</div>
+        </div>
+        <div className={styles.image}>
+          <img src={`data:image/png;base64,${product.imageByte}`} alt="There is nothing to show" />
+        </div>
+      </div>
+    )
+  }
+
+  const showAddress = (contact) => {
     return (
       <div className={styles.contactContainer}>
         <div className="">{contact.address}</div>
@@ -60,21 +90,6 @@ const Order = () => {
     )
   }
 
-  const showProductItemInfo = (productItem) => {
-    return (
-      <div className={styles.productItem}>
-        <div className={styles.description}>
-          <div className="">Product id: {productItem.id}</div>
-          <div className="">Product name: {productItem.name}</div>
-          <div className="">Product price: {productItem.price}</div>
-        </div>
-        <div className={styles.image}>
-          <img src={`data:image/png;base64,${productItem.imageByte}`} alt="There is nothing to show" />
-        </div>
-      </div>
-    )
-  }
-
   if (orderEntities.status !== 'succeeded') {
     return <Loader />
   }
@@ -84,6 +99,7 @@ const Order = () => {
       <div className={styles.title}>Order List</div>
       <div className={styles.order}>
         <div className={styles.table}>
+          <p>№</p>
           <p>Order info</p>
           <p>Address</p>
           <p>Status</p>
