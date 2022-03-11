@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "title title"
+    "loginForm loginForm";
+  padding: 5%;
+  gap: 5%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.title {
+  grid-area: title;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.loginForm {
+  grid-area: loginForm;
+  display: grid;
+  gap: 5%;
+  justify-items: center;
+}
+
+.container input {
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 1.5;
+  border: none;
+  height: 1.5rem;
+  background-color: #f5f7fa;
+  padding: 30px;
+  color: #6b6b6b;
+  font-size: 1rem;
+}

@@ -10,6 +10,7 @@ import ProductForm from './components/admin/product-form/product-form.component'
 import CategoryForm from "./components/admin/category/category-form.component";
 import ProductDetail from "./components/main/product-detail/product-detail.component";
 import Order from "./components/admin/order/order.component";
+import SignIn from "./components/main/sign-in/sign-in.component";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="shop/:category/:id" element={<ProductDetail />} />
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="sign-in" element={<SignIn />} />
         </Route>
         <Route path="/admin" element={<Admin />}>
           <Route index element={<Order />} />
