@@ -3,12 +3,14 @@ import Button from '../../common/button/button.component';
 import Logo from '../../common/logo/logo.component';
 import { useSelector } from 'react-redux';
 import { cartProductEntitiesNumberSelector } from '../../../redux/features/cart/cart.slice';
+import { authSelector } from '../../../redux/features/auth/auth.slice';
 import {
   Link
 } from 'react-router-dom';
 
 const Sidebar = () => {
 
+  const { status } = useSelector(authSelector);
   const cartProductEntitiesNumber = useSelector(cartProductEntitiesNumberSelector);
 
   return (
@@ -17,8 +19,8 @@ const Sidebar = () => {
         <Logo />
       </div>
       <nav className={styles.navContainer}>
+        {status === 'succeeded' ? <Link style={{color: 'red'}} to="/admin">Admin</Link> : null}
         <Link to="/sign-in">Sign In</Link>
-        <Link to="/admin">Admin</Link>
         <Link to="/home">Home</Link>
         <Link to="/shop">Shop</Link>
         <Link to="/category">Category</Link>

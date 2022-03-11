@@ -11,6 +11,8 @@ import CategoryForm from "./components/admin/category/category-form.component";
 import ProductDetail from "./components/main/product-detail/product-detail.component";
 import Order from "./components/admin/order/order.component";
 import SignIn from "./components/main/sign-in/sign-in.component";
+import PrivateRoute from "./wrappers/privateRoute";
+import PrivateRouteWrapper from "./wrappers/privateRouteWrapper";
 
 function App() {
   return (
@@ -27,9 +29,14 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="sign-in" element={<SignIn />} />
         </Route>
-        <Route path="/admin" element={<Admin />}>
+        {/*TODO Улучшить роутинг */}
+        <Route path="/admin" element={
+          <PrivateRoute>
+            <Admin />
+          </PrivateRoute>}
+        >
           <Route index element={<Order />} />
-          <Route path="order" element={<Order />} />
+          {PrivateRouteWrapper("order", <Order />)}
           <Route path="product" element={<ProductForm />} />
           <Route path="category" element={<CategoryForm />} />
         </Route>
