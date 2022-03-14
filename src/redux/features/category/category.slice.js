@@ -25,7 +25,9 @@ export const getAllCategories = createAsyncThunk(
 
 export const saveCategory = createAsyncThunk(
   'category/saveCategory',
-  async (category) => {
+  async (category, { getState }) => {
+
+    const { auth } = getState();
 
     const options = {
       method: 'POST',
@@ -33,6 +35,7 @@ export const saveCategory = createAsyncThunk(
       url: 'http://localhost:8080/api/v1/category/add',
       headers: {
         "Content-Type": "form/multipart",
+        "Authorization": auth.authEntity.token
       }
     }
 

@@ -54,12 +54,16 @@ export const getAllOrders = createAsyncThunk(
 
 export const deleteOrderById = createAsyncThunk(
   'checkout/deleteOrderById',
-  async (id) => {
+  async (id, { getState }) => {
+
+    const { auth } = getState();
+
     const options = {
       method: 'DELETE',
       url: `http://localhost:8080/api/v1/order/delete/${id}`,
       headers: {
         "Content-Type": "application/json",
+        "Authorization": auth.authEntity.token
       }
     }
 

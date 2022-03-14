@@ -25,7 +25,9 @@ export const getAllProducts = createAsyncThunk(
 
 export const saveProduct = createAsyncThunk(
   'product/saveProduct',
-  async (product) => {
+  async (product, { getState }) => {
+
+    const { auth } = getState();
 
     const options = {
       method: 'POST',
@@ -33,6 +35,7 @@ export const saveProduct = createAsyncThunk(
       url: 'http://localhost:8080/api/v1/product/add',
       headers: {
         "Content-Type": "form/multipart",
+        "Authorization": auth.authEntity.token
       }
     }
 
