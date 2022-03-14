@@ -6,11 +6,18 @@ const CartIcon = ({ product, count }) => {
 
   const dispatch = useDispatch();
 
+  //Проверка, есть ли продукт в наличии!
+  const addProductHandler = () => {
+    if (!(product.count === 0 || product.count === null || product.count === undefined)) {
+      dispatch(addProductToCart({ product, count }))
+    }
+  }
+
   return (
     <div className={styles.container}>
       <i
         class="fas fa-cart-arrow-down"
-        onClick={() => dispatch(addProductToCart({product, count}))}
+        onClick={addProductHandler}
       >
       </i>
     </div>

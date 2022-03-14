@@ -27,6 +27,11 @@ const ProductDetail = () => {
     setProductCount(count);
   }
 
+  //! Не чистая функция
+  const isProductAvailable = () => {
+    return (productById.count === 0 || productById.count === null || productById.count === undefined) ? false : true;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.category}>{productById.category.name} {'>'} {productById.name}</div>
@@ -45,7 +50,7 @@ const ProductDetail = () => {
           {showRating()}
         </div>
         <div className={styles.count}>
-          <p>Product count: {productById.count}</p>
+          <p>Product count: {isProductAvailable() ? productById.count : <small>Нет в наличии</small>}</p>
           <div
             className={styles.isAvailable}
             style={productById.count <= 0 ? { backgroundColor: 'red' } : null}
@@ -53,7 +58,10 @@ const ProductDetail = () => {
         </div>
         <div className={styles.name}>
           <span>{productById.name}</span>
-          <CartIcon product={productById} count={productCount} />
+          <CartIcon
+            product={productById}
+            count={productCount}
+          />
         </div>
         <div className={styles.description}>
           <p>{productById.description}</p>
@@ -72,6 +80,7 @@ const ProductDetail = () => {
         <Button
           name="Add to cart"
           handler={{ onClick: () => dispatch(addProductToCart({ product: productById, count: productCount })) }}
+          isDisabled={!isProductAvailable()}
         />
       </div>
       <div className={styles.recommendation}>

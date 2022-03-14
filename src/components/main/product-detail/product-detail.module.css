@@ -71,7 +71,7 @@
 
 .count {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 5fr 1fr;
   align-items: center;
   background-color: #F5F7FA;
   justify-items: center;
