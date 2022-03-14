@@ -13,14 +13,20 @@ const Sidebar = () => {
   const { status } = useSelector(authSelector);
   const cartProductEntitiesNumber = useSelector(cartProductEntitiesNumberSelector);
 
+  const showAdminOrSignInLink = () => {
+    return status === 'succeeded' ?
+      <Link style={{ color: 'red' }} to="/admin">Admin</Link>
+      :
+      <Link to="/sign-in">Sign In</Link>
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
         <Logo />
       </div>
       <nav className={styles.navContainer}>
-        {status === 'succeeded' ? <Link style={{color: 'red'}} to="/admin">Admin</Link> : null}
-        <Link to="/sign-in">Sign In</Link>
+        {showAdminOrSignInLink()}
         <Link to="/home">Home</Link>
         <Link to="/shop">Shop</Link>
         <Link to="/category">Category</Link>

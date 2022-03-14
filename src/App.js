@@ -36,7 +36,7 @@ function App() {
           </PrivateRoute>}
         >
           <Route index element={<Order />} />
-          {PrivateRouteWrapper("order", <Order />)}
+          <Route path="order" element={<Order />} />
           <Route path="product" element={<ProductForm />} />
           <Route path="category" element={<CategoryForm />} />
         </Route>
