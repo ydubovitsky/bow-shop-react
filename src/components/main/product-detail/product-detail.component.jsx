@@ -1,39 +1,25 @@
-import styles from './product-detail.module.css';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from "react-router-dom";
+import { addProductToCart } from '../../../redux/features/cart/cart.slice';
 import {
-  productByIdSelector,
-  recommendationProductsSelector
+  productByIdSelector
 } from '../../../redux/features/product/product.slice';
-import { useParams, Link } from "react-router-dom";
 import Button from '../../common/button/button.component';
 import CartIcon from '../../common/cart-icon/cart-icon.component';
-import { addProductToCart } from '../../../redux/features/cart/cart.slice';
-
+import RecommendedProducts from '../recommended-products/recommended-products.component';
+import styles from './product-detail.module.css';
 
 const ProductDetail = () => {
 
   let { id } = useParams();
   const dispatch = useDispatch();
   const productById = useSelector(state => productByIdSelector(state, parseInt(id, 10)));
-  const recommendationProducts = useSelector(recommendationProductsSelector);
   const [productCount, setProductCount] = useState(0);
 
   //TODO Добавить настоящие рейтинг к продукту
   const showRating = () => {
     return new Array(5).fill(null).map(idx => <i className="fas fa-star"></i>)
-  }
-
-  //TODO Переработать метод с рекомендациями!
-  const showRecommendationProducts = () => {
-    return recommendationProducts.map(recProduct => {
-      return <Link
-        to={`/shop/${recProduct.category.name}/${recProduct.id}`}
-        style={{
-          backgroundImage: `url(data:image/png;base64,${recProduct.imageByte})`,
-        }}>
-      </Link>
-    })
   }
 
   const productCountFormHandler = (event) => {
@@ -91,7 +77,7 @@ const ProductDetail = () => {
       <div className={styles.recommendation}>
         <p>Recommended products:</p>
         <div className={styles.recProducts}>
-          {showRecommendationProducts()}
+          <RecommendedProducts />
         </div>
       </div>
     </div>
