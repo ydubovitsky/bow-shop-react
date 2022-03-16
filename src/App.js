@@ -12,7 +12,8 @@ import ProductDetail from "./components/main/product-detail/product-detail.compo
 import Order from "./components/admin/order/order.component";
 import SignIn from "./components/main/sign-in/sign-in.component";
 import PrivateRoute from "./wrappers/privateRoute";
-import PrivateRouteWrapper from "./wrappers/privateRouteWrapper";
+import Search from "./components/main/search/search.component";
+import Page404 from "./components/common/page-404/page-404.component";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="sign-in" element={<SignIn />} />
+          <Route path="search" element={<Search />} />
+          <Route path="*" element={<Page404 />} />
         </Route>
         {/*TODO Улучшить роутинг */}
         <Route path="/admin" element={
