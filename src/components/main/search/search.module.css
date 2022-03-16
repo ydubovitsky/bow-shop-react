@@ -1,0 +1,50 @@
+.container {
+  display: grid;
+  padding: 5%;
+  font-family: 'Oswald', sans-serif;
+  grid-template-rows: repeat(5, min-content);
+  gap: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.searchForm {
+  font-family: 'Noto Sans', 'Oswald', 'Manrope', 
+  'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-rows: 1fr;
+  align-items: center;
+  box-shadow: 1px 1px 1px 2px silver;
+
+}
+
+.searchForm input {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: inherit;
+  line-height: inherit;
+  overflow: visible;
+  width: 100%;
+  height: 55px;
+  background-color: #fff;
+  color: #afafaf;
+  font-size: 14px;
+  font-style: italic;
+  padding: 0 30px;
+  border: none;
+  border-right: none;
+  outline: none;
+}
+
+.productItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
