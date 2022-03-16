@@ -11,8 +11,9 @@ const ProductListItem = ({ product }) => {
 
   return (
     <div className={styles.container}>
+      {console.log(product)}
       <Link
-        to={`/shop/${product.category.name}/${product.id}`}
+        to={`/shop/${product.category?.name}/${product.id}`} //! У продукта обязательно должна быть категория
         className={styles.container}
         style={{
           backgroundImage: `url(data:image/png;base64,${product.imageByte})`,

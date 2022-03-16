@@ -103,7 +103,7 @@ export const categoryByColumnSelector = state => state.category
   });
 export const categoriesNameSelector = state => state.category
   .categoryEntities.map(category => category.name);
-export const categoryInfoSelector = (state, name) => state.category
+export const categoryInfoSelector = (state, name="") => state.category
   .categoryEntities
   .filter(category => category.name === name)
   .reduce((info, category) => (

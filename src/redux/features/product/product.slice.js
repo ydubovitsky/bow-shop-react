@@ -93,7 +93,7 @@ export default productSlice.reducer
 // -------------------------------- Selector --------------------------------
 
 export const productEntitiesStatusSelector = state => state.product.productEntities.status;
-export const productByCategorySelector = (state, categoryName) => state.product
+export const productByCategorySelector = (state, categoryName="") => state.product
   .productEntities.products.filter(product => {
     return product.category?.name === categoryName
   });
