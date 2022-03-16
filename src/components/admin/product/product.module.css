@@ -1,0 +1,32 @@
+.container {
+  padding: 5%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.selector {
+  display: grid;
+  text-align: center;
+  justify-content: space-evenly;
+  grid-template-areas: 
+  "selectorTitle selectorTitle"
+  "inputContainer inputContainer"
+  ;
+}
+
+.selectorTitle {
+  grid-area: selectorTitle;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.inputContainer {
+  grid-area: inputContainer;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

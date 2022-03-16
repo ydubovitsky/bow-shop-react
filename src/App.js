@@ -6,7 +6,6 @@ import Main from './layers/main/main.layer';
 import Checkout from './components/main/checkout/checkout.component';
 import Shop from './components/main/shop/shop.component';
 import Admin from "./layers/admin/admin.layer";
-import ProductForm from './components/admin/product-form/product-form.component';
 import CategoryForm from "./components/admin/category/category-form.component";
 import ProductDetail from "./components/main/product-detail/product-detail.component";
 import Order from "./components/admin/order/order.component";
@@ -14,6 +13,7 @@ import SignIn from "./components/main/sign-in/sign-in.component";
 import PrivateRoute from "./wrappers/privateRoute";
 import Search from "./components/main/search/search.component";
 import Page404 from "./components/common/page-404/page-404.component";
+import Product from "./components/admin/product/product.component";
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
         >
           <Route index element={<Order />} />
           <Route path="order" element={<Order />} />
-          <Route path="product" element={<ProductForm />} />
+          <Route path="product" element={<Product />} />
           <Route path="category" element={<CategoryForm />} />
         </Route>
       </Routes>

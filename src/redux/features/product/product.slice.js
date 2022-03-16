@@ -44,7 +44,27 @@ export const saveProduct = createAsyncThunk(
   }
 )
 
+export const deleteProduct = createAsyncThunk(
+  'product/deleteProduct',
+  async (id, { getState }) => {
 
+    const { auth } = getState();
+
+    const options = {
+      method: 'DELETE',
+      url: `http://localhost:8080/api/v1/product/delete/${id}`,
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": auth.authEntity.token
+      }
+    }
+
+    const response = await dataFetch(options);
+    return response
+  }
+)
+
+//TODO Переделать state
 const initialState = {
   productEntities: {
     products: [],
@@ -85,6 +105,10 @@ export const productSlice = createSlice({
         state.productEntities.status = 'failed'
         state.productEntities.error = action.error.message
       })
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        const { payload } = action;
+        console.log(payload);
+      })
   }
 })
 
@@ -93,7 +117,8 @@ export default productSlice.reducer
 // -------------------------------- Selector --------------------------------
 
 export const productEntitiesStatusSelector = state => state.product.productEntities.status;
-export const productByCategorySelector = (state, categoryName="") => state.product
+export const productEntitiesSelector = state => state.product.productEntities;
+export const productByCategorySelector = (state, categoryName = "") => state.product
   .productEntities.products.filter(product => {
     return product.category?.name === categoryName
   });

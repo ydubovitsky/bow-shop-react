@@ -1,0 +1,17 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.productContainer {
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: red;
+  font-size: 3rem;
+}

@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   saveProduct,
   productEntitiesStatusSelector
-} from '../../../redux/features/product/product.slice';
+} from '../../../../redux/features/product/product.slice';
 import {
   categoriesNameSelector,
   getAllCategories
-} from '../../../redux/features/category/category.slice';
-import Loader from '../loader/loader.component';
+} from '../../../../redux/features/category/category.slice';
+import Loader from '../../loader/loader.component';
 import styles from './product-form.module.css';
-import Button from '../../common/button/button.component';
+import Button from '../../../common/button/button.component';
 
 const ProductForm = () => {
 
@@ -38,7 +38,6 @@ const ProductForm = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Product</div>
       {showLoader()}
       <div className={styles.form}>
         <form ref={formEl}>
