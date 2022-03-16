@@ -28,7 +28,8 @@
 
 .container input[type="text"],
 .container input[type="number"],
-.container input[list] {
+.container input[list],
+.container textarea {
   box-sizing: border-box;
   margin: 0;
   font-family: inherit;
@@ -37,9 +38,7 @@
   width: 100%;
   height: 50px;
   background-color: #fff;
-  color: #afafaf;
-  font-size: 14px;
-  font-style: italic;
+  font-size: 1.2rem;
   border: none;
   padding: 0 30px;
   border: 1px solid silver;
