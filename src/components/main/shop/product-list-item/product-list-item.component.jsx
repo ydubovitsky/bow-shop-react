@@ -4,11 +4,9 @@ import CartIcon from '../../../common/cart-icon/cart-icon.component';
 
 const ProductListItem = ({ product }) => {
 
-  console.log(product);
-
   //TODO Добавить настоящие рейтинг к продукту
   const showRating = () => {
-    return new Array(5).fill(null).map(idx => <i className="fas fa-star"></i>)
+    return new Array(5).fill(null).map((val, idx) => <i key={idx} className="fas fa-star"></i>)
   }
 
   return (

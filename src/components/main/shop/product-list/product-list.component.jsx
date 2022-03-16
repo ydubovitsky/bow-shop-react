@@ -25,13 +25,17 @@ const ProductList = () => {
 
   return (
     <div className={styles.container}>
-    {console.log(categoryInfo)}
       <div className={styles.info}>
         <h1>{categoryInfo.name}</h1>
         <p>{categoryInfo.description}</p>
       </div>
       <div className={styles.productList}>
-        {productByCategory.map(product => <ProductListItem product={product} />)}
+        {productByCategory.map(product => (
+          <ProductListItem
+            key={product.id}
+            product={product}
+          />)
+        )}
       </div>
     </div>
   )

@@ -35,7 +35,7 @@ const Sidebar = () => {
       </nav>
       <div className={styles.buttonContainer}>
         <Button name="%Discount%" />
-        <Button name="New this week" style={{ 'background-color': 'black' }} />
+        <Button name="New this week" style={{ 'backgroundColor': 'black' }} />
       </div>
       <div className={styles.cartContainer}>
         <div className={styles.cartLink}>

@@ -19,7 +19,7 @@ const ProductDetail = () => {
 
   //TODO Добавить настоящие рейтинг к продукту
   const showRating = () => {
-    return new Array(5).fill(null).map(idx => <i className="fas fa-star"></i>)
+    return new Array(5).fill(null).map((value, idx) => <i key={idx} className="fas fa-star"></i>)
   }
 
   const productCountFormHandler = (event) => {

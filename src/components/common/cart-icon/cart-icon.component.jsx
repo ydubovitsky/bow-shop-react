@@ -16,7 +16,7 @@ const CartIcon = ({ product, count }) => {
   return (
     <div className={styles.container}>
       <i
-        class="fas fa-cart-arrow-down"
+        className="fas fa-cart-arrow-down"
         onClick={addProductHandler}
       >
       </i>

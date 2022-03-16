@@ -25,17 +25,17 @@ const CategoryList = () => {
     <div className={styles.container}>
       <div className={styles.oneColumn}>
         {categoryByColumn.one.map(category => (
-          <CategoryItem name={category.name} imageByte={category.imageByte} />
+          <CategoryItem key={category.id} name={category.name} imageByte={category.imageByte} />
         ))}
       </div>
       <div className={styles.twoColumn}>
         {categoryByColumn.two.map(category => (
-          <CategoryItem name={category.name} imageByte={category.imageByte} />
+          <CategoryItem key={category.id} name={category.name} imageByte={category.imageByte} />
         ))}
       </div>
       <div className={styles.threeColumn}>
         {categoryByColumn.three.map(category => (
-          <CategoryItem name={category.name} imageByte={category.imageByte} />
+          <CategoryItem key={category.id} name={category.name} imageByte={category.imageByte} />
         ))}
       </div>
     </div>

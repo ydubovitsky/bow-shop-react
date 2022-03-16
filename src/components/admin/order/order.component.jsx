@@ -24,7 +24,7 @@ const Order = () => {
     console.log(orders);
     return orders.map(order => {
       return (
-        <div className={styles.orderRow}>
+        <div key={order.id} className={styles.orderRow}>
           <div className="">Order id: {order.id}</div>
           {showOrderInfo(order.orderItems)}
           {showAddress(order.contacts)}
@@ -48,7 +48,7 @@ const Order = () => {
 
   const showOrderItem = ({ id, product, count }) => {
     return (
-      <div className={styles.orderItem}>
+      <div key={id} className={styles.orderItem}>
         <div className="">{id}</div>
         <div className="">{count}</div>
         {showProduct(product)}
@@ -58,7 +58,7 @@ const Order = () => {
 
   const showProduct = (product) => {
     return (
-      <div className={styles.productItem}>
+      <div key={product.id} className={styles.productItem}>
         <div className={styles.description}>
           <div className="">Product id: {product.id}</div>
           <div className="">Product name: {product.name}</div>
