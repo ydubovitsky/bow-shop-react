@@ -14,6 +14,8 @@ import PrivateRoute from "./wrappers/privateRoute";
 import Search from "./components/main/search/search.component";
 import Page404 from "./components/common/page-404/page-404.component";
 import Product from "./components/admin/product/product.component";
+import Discount from "./components/main/discount/discount.component";
+import NewCollection from "./components/main/new-collection/new-collection.component";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="sign-in" element={<SignIn />} />
           <Route path="search" element={<Search />} />
+          <Route path="discount" element={<Discount />} />
+          <Route path="new-collection" element={<NewCollection />} />
           <Route path="*" element={<Page404 />} />
         </Route>
         {/*TODO Улучшить роутинг */}

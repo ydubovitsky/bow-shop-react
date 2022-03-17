@@ -16,9 +16,7 @@ const Checkout = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
-        <p>Checkout</p>
-      </div>
+      <div className={styles.title}>Checkout</div>
       <div className={styles.contactsForm}>
         <div className={styles.fioContainer}>
           <input type="text" name="firstName" placeholder='First Name' onChange={contactsFormHandler}/>

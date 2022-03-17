@@ -5,12 +5,14 @@ import { useSelector } from 'react-redux';
 import { cartProductEntitiesNumberSelector } from '../../../redux/features/cart/cart.slice';
 import { authSelector } from '../../../redux/features/auth/auth.slice';
 import {
-  Link
+  Link,
+  useNavigate
 } from 'react-router-dom';
 
 const Sidebar = () => {
 
   const { status } = useSelector(authSelector);
+  const navigate = useNavigate();
   const cartProductEntitiesNumber = useSelector(cartProductEntitiesNumberSelector);
 
   const showAdminOrSignInLink = () => {
@@ -34,8 +36,15 @@ const Sidebar = () => {
         <Link to="/checkout">Checkout</Link>
       </nav>
       <div className={styles.buttonContainer}>
-        <Button name="%Discount%" />
-        <Button name="New this week" style={{ 'backgroundColor': 'black' }} />
+        <Button
+          name="%Discount%"
+          handler={{ onClick: () => navigate("/discount") }}
+        />
+        <Button
+          name="New collection"
+          handler={{ onClick: () => navigate("/new-collection") }}
+          style={{ 'backgroundColor': 'black' }}
+        />
       </div>
       <div className={styles.cartContainer}>
         <div className={styles.cartLink}>

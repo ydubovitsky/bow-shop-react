@@ -4,8 +4,8 @@
   grid-template-areas: 
   "title title"
   "checkoutForm cartTotal";
-  padding: 5%;
-  gap: 5%;
+  padding: 10% 5%;
+  gap: 25px;
   font-family: 'Oswald', sans-serif;
 }
 
