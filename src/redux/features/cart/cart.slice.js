@@ -1,5 +1,6 @@
 import {
-  createSlice
+  createSlice,
+  current
 } from '@reduxjs/toolkit';
 // -------------------------------- Const --------------------------------
 //TODO Внести в state?
@@ -22,9 +23,17 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    //TODO Переписать метод
     addProductToCart: {
       reducer(state, action) {
-        state.cartEntities.push(action.payload)
+        const { product, count } = action.payload;
+        const existedProductId = state.cartEntities.findIndex(entity => entity.product.id === product.id);
+        if (existedProductId !== -1) {
+          state.cartEntities[existedProductId].count
+            = parseInt(state.cartEntities[existedProductId].count) + parseInt(count);
+        } else {
+          state.cartEntities.push(action.payload);
+        }
       }
     },
     decreaseProductCount: {
@@ -56,7 +65,7 @@ export const cartSlice = createSlice({
       }
     }
   }
-})
+});
 
 export const {
   addProductToCart,
