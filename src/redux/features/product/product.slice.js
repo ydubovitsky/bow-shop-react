@@ -131,3 +131,8 @@ export const findProductsByKeywordSelector = (state, keyword) => {
   return state.product.productEntities
     .products.filter(product => product.name.includes(keyword))
 }
+export const productsByCreateDateSelector = (state, count) => {
+  const copy = [...state.product.productEntities.products]; //TODO Вынести в state?
+
+  return copy.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, count);
+}

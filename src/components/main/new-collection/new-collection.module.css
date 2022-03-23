@@ -3,8 +3,8 @@
   grid-template-columns: 5fr 2fr;
   grid-template-rows: min-content max-content;
   grid-template-areas:
-    "title title"
-    "order total";
+    "title input"
+    "productsContainer productsContainer";
   gap: 25px;
   padding: 10% 5%;
   font-family: 'Oswald', sans-serif;
@@ -14,4 +14,20 @@
   grid-area: title;
   text-align: left;
   font-size: 1.5rem;
+}
+
+.input {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  align-items: center;
+  gap: 25px;
+  font-size: 1.2rem;
+  grid-area: input;
+}
+
+.productsContainer {
+  grid-area: productsContainer;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
 }
