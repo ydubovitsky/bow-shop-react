@@ -6,7 +6,7 @@ import checkoutReducer from './features/checkout/checkout.slice';
 import authReducer from './features/auth/auth.slice';
 import { loadState, saveState } from './localStorage';
 
-const persistedState = loadState();
+const persistedState = loadState('auth');
 
 export const store = configureStore({
   reducer: {
@@ -17,10 +17,10 @@ export const store = configureStore({
     checkout: checkoutReducer
   },
   preloadedState: {
-    ...persistedState
+    auth: persistedState
   }
 });
 
 store.subscribe(() => {
-  saveState(store.getState());
+  saveState('auth', store.getState().auth);
 });
