@@ -81,9 +81,11 @@ export default CategorySlice.reducer
 // -------------------------------- Selector --------------------------------
 
 export const allCategoriesSelector = (state) => state.category.categoryEntities;
+
 export const statusCategoriesSelector = state => state.category.status;
+
 export const categoryByColumnSelector = state => state.category
-  .categoryEntities.reduce((result, category) => {
+  .categoryEntities?.reduce((result, category) => {
     if (category.id % 3 === 0) {
       result.three.push(category);
       return result;
@@ -101,17 +103,20 @@ export const categoryByColumnSelector = state => state.category
     two: [],
     three: []
   });
+
 export const categoriesNameSelector = state => state.category
-  .categoryEntities.map(category => category.name);
+  .categoryEntities?.map(category => category.name);
+
 export const categoryInfoSelector = (state, name="") => state.category
   .categoryEntities
-  .filter(category => category.name === name)
+  ?.filter(category => category.name === name)
   .reduce((info, category) => (
     {
       ...info,
       name: category.name,
       description: category.description
     }), {});
+
 export const firstCategoryElementNameSelector = (state) => {
   return state.category.categoryEntities[0]?.name;
 }
