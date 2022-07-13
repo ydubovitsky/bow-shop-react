@@ -12,17 +12,12 @@
 }
 
 .searchForm {
-  font-family: 'Noto Sans', 'Oswald', 'Manrope', 
-  'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
   text-align: left;
   display: grid;
   grid-template-columns: auto min-content;
   grid-template-rows: 1fr;
   align-items: center;
-  box-shadow: 1px 1px 1px 2px silver;
-
+  box-shadow: 1px 1px 1px 1px silver;
 }
 
 .searchForm input {

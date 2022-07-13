@@ -20,7 +20,7 @@ const Search = () => {
     <div className={styles.searchForm}>
       <input
         type="text"
-        placeholder='input some product name...'
+        placeholder='Input some product name...'
         onChange={findProductsByKeywordHandler}
       />
       <Button name={"Search"} />
