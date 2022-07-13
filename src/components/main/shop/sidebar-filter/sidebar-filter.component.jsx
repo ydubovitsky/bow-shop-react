@@ -1,6 +1,6 @@
 import styles from './sidebar-filter.module.css';
 import cn from 'classnames';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,17 +8,32 @@ import {
   getAllCategories
 } from '../../../../redux/features/category/category.slice';
 
+const minPrice = 10;
+const maxPrice = 10000;
+const colors = ["red", "green", "blue", "yellow", "purple", "white", "black", "coral"];
+
 const SidebarFilter = () => {
 
   const dispatch = useDispatch();
   const categoriesName = useSelector(categoriesNameSelector);
   const categoryStatus = useSelector(state => state.category.status);
+  const [currentRangeValue, setCurrentRangeValue] = useState(minPrice);
 
   useEffect(() => {
     if (categoryStatus === 'idle') {
       dispatch(getAllCategories());
     }
   }, []);
+
+  const rangeInputHandler = (e) => {
+    setCurrentRangeValue(e.target.value);
+  }
+
+  const showColorElements = (colorArray) => {
+    return colorArray.map(color => (
+      <div className={cn(styles.color, styles[color])}></div>
+    ))
+  }
 
   return (
     <div className={styles.container}>
@@ -35,24 +50,13 @@ const SidebarFilter = () => {
       </div>
       <div className={styles.title}>Color</div>
       <div className={styles.colors}>
-        <div className={cn(styles.color, styles.red)}></div>
-        <div className={cn(styles.color, styles.green)}></div>
-        <div className={cn(styles.color, styles.blue)}></div>
-        <div className={cn(styles.color, styles.yellow)}></div>
-        <div className={cn(styles.color, styles.purple)}></div>
-        <div className={cn(styles.color, styles.white)}></div>
-        <div className={cn(styles.color, styles.black)}></div>
-        <div className={cn(styles.color, styles.coral)}></div>
+        {showColorElements(colors)}
       </div>
       <div className={styles.price}>
-        <div className={styles.title}>
-          <span>Price</span>
-        </div>
-        <div className={styles.line}>
-          <div className={styles.ballStart}></div>
-          <div className={styles.ballEnd}></div>
-        </div>
-        <div className={styles.cost}>100р - 1000р</div>
+        <label className={styles.title} for="price">Price</label>
+        <input type="range" name="price" min={minPrice} max={maxPrice} onChange={rangeInputHandler}>
+        </input>
+        <div className={styles.cost}>{minPrice}р - {currentRangeValue}р</div>
       </div>
     </div>
   )
