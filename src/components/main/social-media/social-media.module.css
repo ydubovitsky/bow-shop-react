@@ -4,6 +4,7 @@
   right: 50px;
   display: grid;
   gap: 5px;
+  z-index: 1000;
 }
 
 .link {
