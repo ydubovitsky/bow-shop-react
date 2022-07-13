@@ -1,0 +1,22 @@
+.container {
+  text-align: justify;
+  padding: 10%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.policy {
+  padding: 2rem 0;
+}
+
+.col {
+  line-height: 2rem;
+}
+
+.ol {
+  margin-left: 3rem;
+  line-height: 2rem;
+}
+
+.li {
+  line-height: 2rem;
+}

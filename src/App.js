@@ -15,6 +15,7 @@ import Search from "./components/main/search/search.component";
 import Page404 from "./components/common/page-404/page-404.component";
 import Product from "./components/admin/product/product.component";
 import Discount from "./components/main/discount/discount.component";
+import PrivacyPolicy from "./components/main/privacy-policy/privacy-policy.component";
 import NewCollection from "./components/main/new-collection/new-collection.component";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="shop/:category/:id" element={<ProductDetail />} />
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="policy" element={<PrivacyPolicy />} />
           <Route path="sign-in" element={<SignIn />} />
           <Route path="search" element={<Search />} />
           <Route path="discount" element={<Discount />} />

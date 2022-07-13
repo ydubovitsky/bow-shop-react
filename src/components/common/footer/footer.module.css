@@ -3,16 +3,34 @@
   display: grid;
   grid-template-columns: max-content 1fr;
   align-items: center;
-  padding: 100px;
+  justify-items: center;
+  padding: 50px;
+  grid-template-areas: "oneColumn twoColumn" "copyright copyright";
+  position: relative;
 }
+
+.oneColumn {
+  grid-area: oneColumn;
+}
+
+.twoColumn {
+  grid-area: twoColumn;
+}
+
 
 .navContainer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  padding: 100px;
 }
 
 .navContainer a {
   text-transform: uppercase;
   color: white;
   text-decoration: none;
+}
+
+.copyright {
+  color: white;
+  grid-area: copyright;
 }

@@ -11,6 +11,10 @@ const Footer = () => {
     textDecoration: 'none'
   }
 
+  const showDate = () => {
+    return " 2021 -" +  new Date().getFullYear();
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.oneColumn}>
@@ -23,7 +27,11 @@ const Footer = () => {
           <Link to="/product">Product</Link>
           <Link to="/cart">Cart</Link>
           <Link to="/checkout">Checkout</Link>
+          <Link to="/policy">Privacy Policy</Link>
         </nav>
+      </div>
+      <div className={styles.copyright}>
+        {`COPYRIGHT and DESIGNED BY Y.A. Dubovitsky ©` + showDate()}
       </div>
     </div>
   )
