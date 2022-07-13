@@ -17,10 +17,12 @@ import Product from "./components/admin/product/product.component";
 import Discount from "./components/main/discount/discount.component";
 import PrivacyPolicy from "./components/main/privacy-policy/privacy-policy.component";
 import NewCollection from "./components/main/new-collection/new-collection.component";
+import Popup from "./components/common/popup/popup.component";
 
 function App() {
   return (
     <div className="App">
+    <Popup/>
       <Routes>
         <Route path="/" element={<Main />}>
           <Route index element={<CategoryList />} />
