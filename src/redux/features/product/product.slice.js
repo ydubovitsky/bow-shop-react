@@ -136,3 +136,11 @@ export const productsByCreateDateSelector = (state, count) => {
 
   return copy.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, count);
 }
+export const productsFilteredByCategoryAndPriceSelector = (state, price, categoryName = "") => (
+  state.product
+    .productEntities.products
+    .filter(product => {
+      return product.category?.name === categoryName
+    })
+    .filter(product => parseInt(product.price) < price)
+);

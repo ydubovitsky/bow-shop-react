@@ -8,16 +8,18 @@ import {
   getAllCategories
 } from '../../../../redux/features/category/category.slice';
 
-const minPrice = 10;
-const maxPrice = 10000;
 const colors = ["red", "green", "blue", "yellow", "purple", "white", "black", "coral"];
 
-const SidebarFilter = () => {
+const SidebarFilter = ({
+  minProductPrice,
+  maxProductPrice,
+  maxProductPriceFilterValue,
+  setMaxProductPriceFilterValue
+}) => {
 
   const dispatch = useDispatch();
   const categoriesName = useSelector(categoriesNameSelector);
   const categoryStatus = useSelector(state => state.category.status);
-  const [currentRangeValue, setCurrentRangeValue] = useState(minPrice);
 
   useEffect(() => {
     if (categoryStatus === 'idle') {
@@ -26,12 +28,16 @@ const SidebarFilter = () => {
   }, []);
 
   const rangeInputHandler = (e) => {
-    setCurrentRangeValue(e.target.value);
+    setMaxProductPriceFilterValue(e.target.value);
   }
 
   const showColorElements = (colorArray) => {
     return colorArray.map(color => (
-      <div className={cn(styles.color, styles[color])}></div>
+      <div
+        className={cn(styles.color, styles[color])}
+        //TODO Добавить фильтрацию по цвету!
+        onClick={() => dispatch({ type: 'filterProductsByColor' })}>
+      </div>
     ))
   }
 
@@ -41,7 +47,6 @@ const SidebarFilter = () => {
       <div className={styles.categories}>
         {categoriesName.map(name => {
           return (<NavLink
-            // activeClassName={styles.active}
             key={name}
             to={`/shop/${name}`}
           >{name}
@@ -54,9 +59,9 @@ const SidebarFilter = () => {
       </div>
       <div className={styles.price}>
         <label className={styles.title} for="price">Price</label>
-        <input type="range" name="price" min={minPrice} max={maxPrice} onChange={rangeInputHandler}>
+        <input type="range" name="price" min={minProductPrice} max={maxProductPrice} onChange={rangeInputHandler}>
         </input>
-        <div className={styles.cost}>{minPrice}р - {currentRangeValue}р</div>
+        <div className={styles.cost}>{minProductPrice}р - {maxProductPriceFilterValue}р</div>
       </div>
     </div>
   )

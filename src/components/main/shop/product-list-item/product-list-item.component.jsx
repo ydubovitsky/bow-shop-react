@@ -11,7 +11,6 @@ const ProductListItem = ({ product }) => {
 
   return (
     <div className={styles.container}>
-      {console.log(product)}
       <Link
         to={`/shop/${product.category?.name}/${product.id}`} //! У продукта обязательно должна быть категория
         className={styles.container}

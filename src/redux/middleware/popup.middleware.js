@@ -24,6 +24,14 @@ const CHECKOUT_DELETEORDERBYID_FULFILLED_PROPERTIES = {
   }
 }
 
+const FILTER_PRODUCTS_BY_COLOR_PROPERTIES = {
+  isShow: true,
+  message: 'Sorry, color filtering is in progress',
+  style: {
+    "background": "linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red)"
+  }
+}
+
 const PopupMiddleware = ({dispatch, getState }) => next => action => {
   const { type } = action;
   switch(type) {
@@ -37,6 +45,10 @@ const PopupMiddleware = ({dispatch, getState }) => next => action => {
     }
     case 'checkout/deleteOrderById/fulfilled' : {
       dispatch(showPopup(CHECKOUT_DELETEORDERBYID_FULFILLED_PROPERTIES));
+      break;
+    }
+    case 'filterProductsByColor' : {
+      dispatch(showPopup(FILTER_PRODUCTS_BY_COLOR_PROPERTIES));
       break;
     }
     default: break;

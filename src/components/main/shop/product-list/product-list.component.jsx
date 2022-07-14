@@ -2,18 +2,20 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
-  getAllProducts, productByCategorySelector,
+  getAllProducts,
+  productsFilteredByCategoryAndPriceSelector,
   productEntitiesStatusSelector
 } from '../../../../redux/features/product/product.slice';
 import { categoryInfoSelector } from '../../../../redux/features/category/category.slice';
 import ProductListItem from '../product-list-item/product-list-item.component';
 import styles from './product-list.module.css';
 
-const ProductList = () => {
+const ProductList = ({ maxProductPriceFilterValue }) => {
 
   let { name } = useParams();
   const dispatch = useDispatch();
-  const productByCategory = useSelector(state => productByCategorySelector(state, name));
+  const productByCategory
+    = useSelector(state => productsFilteredByCategoryAndPriceSelector(state, maxProductPriceFilterValue, name));
   const productEntitiesStatus = useSelector(productEntitiesStatusSelector);
   const categoryInfo = useSelector(state => categoryInfoSelector(state, name));
 
