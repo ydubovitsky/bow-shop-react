@@ -6,6 +6,7 @@ import checkoutReducer from './features/checkout/checkout.slice';
 import authReducer from './features/auth/auth.slice';
 import popupReducer from './features/popup/popup.slice';
 import subscribeReducer from './features/subscribe/subscribe.slice';
+import userReducer from './features/user/user.slice';
 import logger from 'redux-logger';
 import PopupMiddleware from './middleware/popup.middleware';
 import { loadState, saveState } from './localStorage';
@@ -20,7 +21,8 @@ export const store = configureStore({
     cart: cartReducer,
     checkout: checkoutReducer,
     popup: popupReducer,
-    subscribe: subscribeReducer
+    subscribe: subscribeReducer,
+    user: userReducer
   },
   preloadedState: {
     auth: persistedState

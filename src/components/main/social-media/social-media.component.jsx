@@ -29,6 +29,11 @@ const SocialMedia = () => {
       >
         <i className={cn("fab fa-vk", styles.vk)}></i>
       </a>
+      <a
+        href="https://telegram.me/Suchermann"
+      >
+        <i className={cn("fab fa-twitter", styles.twitter)}></i>
+      </a>
     </div>
   )
 }

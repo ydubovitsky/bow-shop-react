@@ -17,6 +17,7 @@ import Product from "./components/admin/product/product.component";
 import Discount from "./components/main/discount/discount.component";
 import PrivacyPolicy from "./components/main/privacy-policy/privacy-policy.component";
 import NewCollection from "./components/main/new-collection/new-collection.component";
+import Contacts from "./components/admin/contacts/contacts.component";
 import Popup from "./components/common/popup/popup.component";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="order" element={<Order />} />
           <Route path="product" element={<Product />} />
           <Route path="category" element={<CategoryForm />} />
+          <Route path="contacts" element={<Contacts />} />
         </Route>
       </Routes>
     </div>

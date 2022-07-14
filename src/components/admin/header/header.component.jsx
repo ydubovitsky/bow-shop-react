@@ -10,9 +10,7 @@ const Header = () => {
         <NavLink to={"/admin/product"}>Product</NavLink>
         <NavLink to={"/admin/category"}>Category</NavLink>
         <NavLink to={"/admin/order"}>Orders</NavLink>
-      </div>
-      <div className={styles.user}>
-        <h3>Hello, User</h3>
+        <NavLink to={"/admin/contacts"}>Admin Contact Info</NavLink>
       </div>
     </div>
   )
