@@ -5,6 +5,9 @@ import cartReducer from './features/cart/cart.slice';
 import checkoutReducer from './features/checkout/checkout.slice';
 import authReducer from './features/auth/auth.slice';
 import popupReducer from './features/popup/popup.slice';
+import subscribeReducer from './features/subscribe/subscribe.slice';
+import logger from 'redux-logger';
+import PopupMiddleware from './middleware/popup.middleware';
 import { loadState, saveState } from './localStorage';
 
 const persistedState = loadState('auth');
@@ -16,11 +19,13 @@ export const store = configureStore({
     category: categoryReducer,
     cart: cartReducer,
     checkout: checkoutReducer,
-    popup: popupReducer
+    popup: popupReducer,
+    subscribe: subscribeReducer
   },
   preloadedState: {
     auth: persistedState
-  }
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger, PopupMiddleware),
 });
 
 store.subscribe(() => {

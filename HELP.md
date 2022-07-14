@@ -13,3 +13,6 @@ https://dev.to/igorovic/simplest-way-to-persist-redux-state-to-localstorage-e67
 
 ###
 https://stackoverflow.com/questions/57240245/how-do-i-see-state-when-logging-to-the-console-instead-of-proxy-object-inside-re
+
+### Redux-Logger
+https://www.npmjs.com/package/redux-logger

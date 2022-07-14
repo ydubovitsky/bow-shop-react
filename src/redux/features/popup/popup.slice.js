@@ -1,10 +1,6 @@
 import {
   createSlice,
-  current
 } from '@reduxjs/toolkit';
-// -------------------------------- Const --------------------------------
-const MIN_CART_PRODUCT_COUNT = 1;
-
 
 // -------------------------------- Slice --------------------------------
 

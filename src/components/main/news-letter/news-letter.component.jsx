@@ -1,14 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { showPopup } from '../../../redux/features/popup/popup.slice';
+import { subscribe } from '../../../redux/features/subscribe/subscribe.slice';
 import styles from './news-letter.module.css';
-
-const POPUP_PROPERTIES = {
-  isShow: true,
-  message: 'Sorry, this feature is temporarily unavailable',
-  style: {
-    "background-image": "linear-gradient(to left top, #F8B510 70%, #4F8A8B)"
-  }
-}
 
 const NewsLetter = () => {
 
@@ -30,7 +22,7 @@ const NewsLetter = () => {
           type="submit"
           className={styles.submit}
           value="Subscribe"
-          onClick={() => dispatch(showPopup(POPUP_PROPERTIES))}
+          onClick={() => dispatch(subscribe())}
         />
       </div>
     </div>
